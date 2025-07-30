@@ -1,3 +1,4 @@
+// Font-face declarations for Poppins font family
 @font-face {
 	font-family: "Poppins";
 	font-weight: 300; /* Light */
@@ -28,4 +29,128 @@
 	font-style: normal;
 	font-display: swap;
 	src: url("../../fonts/poppins.bold.ttf") format("truetype");
+}
+
+// Font families
+$font-family-primary: "Poppins", Arial, sans-serif;
+
+// Font weights
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Base line heights (rem)
+$line-height-xs: 1rem; // 16px
+$line-height-sm: 1.25rem; // 20px
+$line-height-base: 2rem; // 32px
+$line-height-lg: 2rem; // 32px
+$line-height-xl: 2.5rem; // 40px
+$line-height-2xl: 2rem; // 32px
+$line-height-3xl: 2.25rem; // 36px
+$line-height-4xl: 2.25rem; // 36px
+$line-height-5xl: 3.5rem; // 56px
+$line-height-6xl: 4.5rem; // 72px
+$line-height-7xl: 4.5rem; // 72px
+
+// Letter spacing (em)
+$letter-spacing-tight-xs: 0em; // 0%
+$letter-spacing-tight-2xl: -0.025em; // -2.5%
+$letter-spacing-tight-3xl: -0.05em; // -5%
+$letter-spacing-tight-4xl: -0.025em; // -2.5%
+$letter-spacing-tight-5xl: -0.05em; // -5%
+$letter-spacing-tight-6xl: -0.05em; // -5%
+$letter-spacing-tight-7xl: -0.055em; // -5.5%
+
+/* 
+  Font variant map (Base: 1rem = 16px)
+  Format: (font-size, line-height, letter-spacing, font-weight)
+*/
+$font-sizes: (
+	text-xs: (
+		0.75rem,
+		$line-height-xs,
+		$letter-spacing-tight-xs,
+		$font-weight-regular,
+	),
+	text-sm: (
+		0.875rem,
+		$line-height-sm,
+		$letter-spacing-tight-xs,
+		$font-weight-regular,
+	),
+	text-base: (
+		1rem,
+		$line-height-base,
+		$letter-spacing-tight-xs,
+		$font-weight-light,
+	),
+	text-lg: (
+		1.125rem,
+		$line-height-lg,
+		$letter-spacing-tight-xs,
+		$font-weight-light,
+	),
+	text-xl: (
+		1.25rem,
+		$line-height-xl,
+		$letter-spacing-tight-xs,
+		$font-weight-light,
+	),
+	text-2xl: (
+		1.5rem,
+		$line-height-2xl,
+		$letter-spacing-tight-2xl,
+		$font-weight-bold,
+	),
+	text-3xl: (
+		1.875rem,
+		$line-height-3xl,
+		$letter-spacing-tight-3xl,
+		$font-weight-semibold,
+	),
+	text-4xl: (
+		2.25rem,
+		$line-height-4xl,
+		$letter-spacing-tight-4xl,
+		$font-weight-regular,
+	),
+	text-5xl: (
+		3rem,
+		$line-height-5xl,
+		$letter-spacing-tight-5xl,
+		$font-weight-semibold,
+	),
+	text-6xl: (
+		3.75rem,
+		$line-height-6xl,
+		$letter-spacing-tight-6xl,
+		$font-weight-semibold,
+	),
+	text-7xl: (
+		4.5rem,
+		$line-height-7xl,
+		$letter-spacing-tight-7xl,
+		$font-weight-bold,
+	),
+);
+
+// Typography mixin
+@mixin typography($variant) {
+	$settings: map-get($font-sizes, $variant);
+
+	@if $settings == null {
+		@error "Unknown font-size variant `#{$variant}`. Available: #{map-keys($font-sizes)}";
+	}
+
+	$font-size: nth($settings, 1);
+	$line-height: nth($settings, 2);
+	$letter-spacing: nth($settings, 3);
+	$font-weight: nth($settings, 4);
+
+	font-family: $font-family-primary;
+	font-size: $font-size;
+	line-height: $line-height;
+	letter-spacing: $letter-spacing;
+	font-weight: $font-weight;
 }
