@@ -1,0 +1,5 @@
+# compiled css files
+assets/styles/*.css
+
+# build output
+/dist
