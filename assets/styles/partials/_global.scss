@@ -1,0 +1,11 @@
+@use "responsive" as *;
+@use "colors" as *;
+@use "typography" as *;
+
+// CSS Reset
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+	margin: 0;
+}
