@@ -8,4 +8,17 @@
 *::before {
 	box-sizing: border-box;
 	margin: 0;
+	padding: 0;
 }
+
+body {
+	font-family: $font-family-primary;
+	@include typography(text-base);
+	color: $primary-50;
+	background-color: $primary-1500;
+	@include tabletScreen {
+		@include typography(text-lg);
+	}
+}
+
+//CLASSES --> Header and Footer
