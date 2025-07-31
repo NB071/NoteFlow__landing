@@ -468,7 +468,6 @@
 		display: flex;
 		flex-direction: column;
 		gap: 1.5rem;
-		margin-bottom: 6rem;
 
 		// breakpoints
 		@include tablet {
@@ -549,6 +548,200 @@
 			margin: 0.75rem 0rem 0rem 5.5rem;
 			padding-right: 7rem;
 			@include typography(text-lg);
+		}
+	}
+}
+
+.testimonials {
+	width: 100%;
+	background: linear-gradient(
+		to bottom,
+		$primary-1300 0%,
+		$primary-1500 100%
+	);
+
+	&__container {
+		@extend %container;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 4rem;
+	}
+
+	&__header-wrapper {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 2rem;
+		margin-top: 8rem;
+		text-align: center;
+
+		@include laptop {
+			width: 60%;
+			padding: 0;
+		}
+	}
+
+	&__chip {
+		@include typography(text-xs);
+		color: $primary-1300;
+		background-color: $primary-500;
+		padding: 0.5rem 1rem;
+		border-radius: 99rem;
+		box-shadow: 0 0 25px 0 rgba(68, 229, 231, 0.3);
+
+		// breakpoints
+		@include laptop {
+			@include typography(text-base);
+		}
+	}
+
+	&__header {
+		@include typography(text-3xl);
+		color: $primary-50;
+
+		// breakpoints
+		@include laptop {
+			@include typography(text-6xl);
+		}
+	}
+
+	&__subheader {
+		@include typography(text-lg);
+		color: $primary-100;
+		margin-bottom: 2rem;
+
+		// breakpoints
+		@include laptop {
+			@include typography(text-xl);
+		}
+	}
+
+	&__wrapper {
+		column-count: 1;
+		column-gap: 2rem;
+
+		// breakpoints
+		@include tablet {
+			column-count: 2;
+		}
+
+		@include desktop {
+			column-count: 3;
+		}
+
+		// Hide last 3 testimonials on mobile (below phone breakpoint)
+		@include responsive-max($tablet-breakpoint) {
+			.testimonial:nth-last-child(-n + 3) {
+				display: none;
+			}
+		}
+	}
+}
+
+.testimonial {
+	display: inline-block;
+	width: 100%;
+	break-inside: avoid;
+	margin-bottom: 2rem;
+	padding: 2.5rem 2rem;
+	background-color: $primary-1300;
+	border-radius: 1rem;
+	transition: all 0.3s ease-in-out;
+
+	// States
+	&:hover {
+		background-color: $primary-1200;
+	}
+
+	&__ratings-wrapper {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		margin-bottom: 2.5rem;
+	}
+
+	&__rating-icon {
+		width: 1.5rem;
+		height: 1.5rem;
+		transition: all 0.3s ease-in-out;
+
+		// States
+		&:hover {
+			filter: brightness(1.4);
+		}
+	}
+
+	&__footer {
+		display: flex;
+		align-items: center;
+		gap: 1.5rem;
+	}
+
+	&__text {
+		margin-bottom: 4rem;
+		color: $primary-50;
+		display: -webkit-box;
+		-webkit-line-clamp: 8;
+		line-clamp: 8;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		@include typography(text-base);
+
+		// breakpoints
+		@include laptop {
+			@include typography(text-lg);
+		}
+	}
+
+	&__avatar {
+		width: 4.5rem;
+		height: 4.5rem;
+		border-radius: 50%;
+		object-fit: cover;
+		transition: all 0.3s ease-in-out;
+
+		// States
+		&:hover {
+			transform: scale(1.05);
+			box-shadow: 0 0 25px $primary-1300;
+		}
+	}
+
+	&__author {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	&__author-name {
+		font-size: 1.125rem;
+		font-weight: 700;
+		letter-spacing: 0em;
+		line-height: 2rem;
+		color: $primary-300;
+
+		// breakpoints
+		@include laptop {
+			font-size: 1.25rem;
+			font-weight: 700;
+			letter-spacing: -0.025em;
+			line-height: 1.75rem;
+		}
+	}
+
+	&__designation {
+		@include typography(text-sm);
+		color: $primary-75;
+
+		// breakpoints
+		@include laptop {
+			font-size: 1rem;
+			font-weight: 400;
+			letter-spacing: -0.025em;
+			line-height: 2rem;
 		}
 	}
 }

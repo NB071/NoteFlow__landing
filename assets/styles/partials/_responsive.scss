@@ -1,29 +1,52 @@
+// breakpoints
+$phone-breakpoint: 480px;
+$tablet-breakpoint: 768px;
+$laptop-breakpoint: 1024px;
+$desktop-breakpoint: 1280px;
+$large-desktop-breakpoint: 1536px;
+
+// Responsive mixins for different device sizes
 @mixin phone {
-	@media (min-width: 480px) {
+	@media (min-width: $phone-breakpoint) {
 		@content;
 	}
 }
 
 @mixin tablet {
-	@media (min-width: 768px) {
+	@media (min-width: $tablet-breakpoint) {
 		@content;
 	}
 }
 
 @mixin laptop {
-	@media (min-width: 1024px) {
+	@media (min-width: $laptop-breakpoint) {
 		@content;
 	}
 }
 
 @mixin desktop {
-	@media (min-width: 1280px) {
+	@media (min-width: $desktop-breakpoint) {
 		@content;
 	}
 }
 
 @mixin large-desktop {
-	@media (min-width: 1536px) {
+	@media (min-width: $large-desktop-breakpoint) {
+		@content;
+	}
+}
+
+// Custom breakpoints
+// Responsive max-width mixin
+@mixin responsive-max($custom-breakpoint) {
+	@media (max-width: $custom-breakpoint) {
+		@content;
+	}
+}
+
+// Responsive min-width mixin
+@mixin responsive-min($custom-breakpoint) {
+	@media (min-width: $custom-breakpoint) {
 		@content;
 	}
 }
