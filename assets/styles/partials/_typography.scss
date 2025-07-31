@@ -1,3 +1,6 @@
+@use "sass:list";
+@use "sass:map";
+
 // Font-face declarations for Poppins font family
 @font-face {
 	font-family: "Poppins";
@@ -137,16 +140,16 @@ $font-sizes: (
 
 // Typography mixin
 @mixin typography($variant) {
-	$settings: map-get($font-sizes, $variant);
+	$settings: map.get($font-sizes, $variant);
 
 	@if $settings == null {
 		@error "Unknown font-size variant `#{$variant}`. Available: #{map-keys($font-sizes)}";
 	}
 
-	$font-size: nth($settings, 1);
-	$line-height: nth($settings, 2);
-	$letter-spacing: nth($settings, 3);
-	$font-weight: nth($settings, 4);
+	$font-size: list.nth($settings, 1);
+	$line-height: list.nth($settings, 2);
+	$letter-spacing: list.nth($settings, 3);
+	$font-weight: list.nth($settings, 4);
 
 	font-size: $font-size;
 	line-height: $line-height;
