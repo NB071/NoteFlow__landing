@@ -16,45 +16,47 @@
 	<body>
 		<!-- Header section -->
 		<header class="header">
-			<!-- Header logo sub-section -->
-			<a href="/" class="header__logo-link">
+			<div class="header__container">
+				<!-- Header logo sub-section -->
+				<a href="/" class="header__logo-link">
+					<img
+						src="assets/images/Logo.png"
+						alt="NoteFlow Logo"
+						class="header__logo"
+					/>
+				</a>
+
+				<!-- Header navigation sub-section -->
+				<nav class="header__navigation">
+					<ul class="header__list">
+						<li class="header__item header__item--selected">
+							<a href="#" class="header__link">Home</a>
+						</li>
+						<li class="header__item">
+							<a href="#" class="header__link">Pricing</a>
+						</li>
+						<li class="header__item">
+							<a href="#" class="header__link">About</a>
+						</li>
+						<li class="header__item">
+							<a href="#" class="header__link">Community</a>
+						</li>
+					</ul>
+				</nav>
+
+				<!-- Header authentication sub-section -->
+				<section class="header__buttons">
+					<button class="button button--secondary">Login</button>
+					<button class="button button--primary">Get Started</button>
+				</section>
+
+				<!-- Header hamburger menu -->
 				<img
-					src="assets/images/Logo.png"
-					alt="NoteFlow Logo"
-					class="header__logo"
+					src="assets/images/icons/Menu.png"
+					alt="Hamburger Menu"
+					class="header__hamburger-menu"
 				/>
-			</a>
-
-			<!-- Header navigation sub-section -->
-			<nav class="header__navigation">
-				<ul class="header__list">
-					<li class="header__item header__item--selected">
-						<a href="#" class="header__link">Home</a>
-					</li>
-					<li class="header__item">
-						<a href="#" class="header__link">Pricing</a>
-					</li>
-					<li class="header__item">
-						<a href="#" class="header__link">About</a>
-					</li>
-					<li class="header__item">
-						<a href="#" class="header__link">Community</a>
-					</li>
-				</ul>
-			</nav>
-
-			<!-- Header authentication sub-section -->
-			<section class="header__buttons">
-				<button class="button button--secondary">Login</button>
-				<button class="button button--primary">Get Started</button>
-			</section>
-
-			<!-- Header hamburger menu -->
-			<img
-				src="assets/images/icons/Menu.png"
-				alt="Hamburger Menu"
-				class="header__hamburger-menu"
-			/>
+			</div>
 		</header>
 
 		<!-- Main section -->
