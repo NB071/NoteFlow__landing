@@ -163,6 +163,8 @@
 		$primary-1500 100%
 	);
 	padding: 2rem 1rem;
+	margin-bottom: 10rem;
+
 	&__container {
 		@extend %container;
 		display: flex;
@@ -190,27 +192,48 @@
 
 	&__logos {
 		width: 100%;
-		display: flex;
-		flex-direction: row;
-		gap: 2rem;
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		gap: 4rem 0rem;
+		justify-items: center;
 
 		// breakpoints
+		@include tablet {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 3rem 3rem;
+		}
+
 		@include laptop {
-			justify-content: center;
-			flex-direction: column;
-			gap: 2rem;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 4rem 4rem;
 		}
 	}
 
 	&__logos-row {
+		width: 100%;
 		display: flex;
-		flex-wrap: wrap;
+		flex-direction: column;
+		align-items: center;
 		gap: 2rem;
-		justify-content: space-between;
 
 		// breakpoints
-		@include laptop {
+		@include tablet {
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
 			gap: 3rem;
+		}
+	}
+
+	&__logo-link {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-decoration: none;
+
+		// States
+		&:hover .companies__logo {
+			transform: scale(1.05);
 		}
 	}
 
