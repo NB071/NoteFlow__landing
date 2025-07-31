@@ -631,7 +631,7 @@
 			column-count: 3;
 		}
 
-		// Hide last 3 testimonials on mobile (below phone breakpoint)
+		// Hide last 3 testimonials on mobile (below tablet breakpoint)
 		@include responsive-max($tablet-breakpoint) {
 			.testimonial:nth-last-child(-n + 3) {
 				display: none;
