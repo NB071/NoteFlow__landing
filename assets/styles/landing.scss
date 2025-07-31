@@ -2,3 +2,38 @@
 @use "./partials/typography" as *;
 @use "./partials/colors" as *;
 @use "./partials/responsive" as *;
+
+.hero {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	&__content {
+		display: flex;
+		justify-content: space-between;
+		align-self: center;
+	}
+
+	&__left {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: start;
+		gap: 1.5rem;
+		width: 60%;
+
+		&__title {
+			@include typography(text-6xl);
+		}
+
+		&__subtitle {
+			@include typography(text-xl);
+			color: $primary-100;
+		}
+	}
+
+	&__image {
+		width: 40%;
+	}
+}

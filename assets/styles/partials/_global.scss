@@ -69,7 +69,7 @@ body {
 	background-color: $primary-500;
 	color: $primary-1300;
 	border: none;
-	padding: 0.5rem 1.5rem;
+	padding: 1rem 2rem;
 	text-wrap: nowrap;
 	border-radius: 28rem;
 	transition: all 0.3s ease-in-out;
@@ -115,7 +115,7 @@ body {
 	&--secondary {
 		background-color: transparent;
 		color: $primary-50;
-		border: 0.15rem solid $primary-50;
+		border: 0.2rem solid $primary-50;
 
 		// States
 		&:hover,
