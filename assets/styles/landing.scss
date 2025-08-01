@@ -3,6 +3,10 @@
 @use "./partials/colors" as *;
 @use "./partials/responsive" as *;
 
+// components
+@use "./components/header" as *;
+@use "./components/footer" as *;
+
 .hero {
 	width: 100%;
 	background: linear-gradient(to top, $primary-1300 0%, $primary-1500 100%);

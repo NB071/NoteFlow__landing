@@ -1,0 +1,97 @@
+@use "../partials/typography" as *;
+@use "../partials/_colors" as *;
+@use "../partials/_responsive" as *;
+@use "../partials/_global" as *;
+
+.header {
+	height: 4rem;
+	margin: 2.5rem 0rem 5.5rem 0rem;
+
+	&__container {
+		@extend %container;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 2rem;
+	}
+
+	&__logo-link {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-decoration: none;
+	}
+
+	&__logo {
+		transition: all 0.3s ease-in-out;
+
+		// States
+		&:hover,
+		&:focus {
+			transform: scale(1.08);
+			opacity: 0.8;
+		}
+	}
+
+	&__navigation {
+		width: 100%;
+		display: none;
+
+		// breakpoints
+		@include laptop {
+			display: block;
+		}
+	}
+
+	&__list {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 2rem;
+		list-style: none;
+		@include typography(text-lg);
+	}
+
+	&__item {
+		&--selected {
+			font-weight: $font-weight-semibold;
+		}
+	}
+
+	&__link {
+		color: $primary-50;
+		text-decoration: none;
+		transition: color 0.3s ease-in-out;
+
+		// States
+		&:hover {
+			color: $primary-300;
+		}
+	}
+
+	&__buttons {
+		display: none;
+
+		// breakpoints
+		@include laptop {
+			display: flex;
+			gap: 1rem;
+		}
+	}
+
+	&__hamburger-menu {
+		display: block;
+		cursor: pointer;
+		transition: all 0.3s ease-in-out;
+
+		// States
+		&:active {
+			transform: scale(0.95);
+		}
+
+		// breakpoints
+		@include laptop {
+			display: none;
+		}
+	}
+}

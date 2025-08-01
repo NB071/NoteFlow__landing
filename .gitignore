@@ -1,6 +1,6 @@
 # compiled css files
-assets/styles/*.css
-assets/styles/*.css.map
+assets/styles/**/*.css
+assets/styles/**/*.css.map
 
 # build output
 /dist
