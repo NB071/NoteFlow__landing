@@ -2,15 +2,7 @@
 @use "colors" as *;
 @use "typography" as *;
 @use "placeholders" as *;
-
-// CSS Reset
-*,
-*::after,
-*::before {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-}
+@use "reset" as *;
 
 // Global styles
 ::selection {
@@ -39,35 +31,35 @@ body {
 }
 
 // CLASSES --> Buttons
-.button {
-	// extension
-	@extend %ctaButton;
+// .button {
+// 	// extension
+// 	@extend %ctaButton;
 
-	&--primary {
-		background-color: $primary-500;
-		color: $primary-1300;
-		box-shadow: 0 0 25px 0 rgba(68, 229, 231, 0.3);
+// 	&--primary {
+// 		background-color: $primary-500;
+// 		color: $primary-1300;
+// 		box-shadow: 0 0 25px 0 rgba(68, 229, 231, 0.3);
 
-		// States
-		&:hover,
-		&:focus {
-			background-color: $primary-600;
-			color: $primary-1200;
-			box-shadow: 0 0 15px 0 rgba(68, 229, 231, 0.1);
-		}
-	}
+// 		// States
+// 		&:hover,
+// 		&:focus {
+// 			background-color: $primary-600;
+// 			color: $primary-1200;
+// 			box-shadow: 0 0 15px 0 rgba(68, 229, 231, 0.1);
+// 		}
+// 	}
 
-	&--secondary {
-		background-color: transparent;
-		color: $primary-50;
-		border: 0.2rem solid $primary-50;
+// 	&--secondary {
+// 		background-color: transparent;
+// 		color: $primary-50;
+// 		border: 0.2rem solid $primary-50;
 
-		// States
-		&:hover,
-		&:focus {
-			border-color: $primary-500;
-			background-color: $primary-500;
-			color: $primary-1300;
-		}
-	}
-}
+// 		// States
+// 		&:hover,
+// 		&:focus {
+// 			border-color: $primary-500;
+// 			background-color: $primary-500;
+// 			color: $primary-1300;
+// 		}
+// 	}
+// }

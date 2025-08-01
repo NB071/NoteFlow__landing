@@ -1,0 +1,150 @@
+@use "sass:list";
+@use "sass:map";
+@use "../partials/typography" as *;
+@use "../partials/colors" as *;
+@use "../partials/responsive" as *;
+@use "../partials/placeholders" as *;
+
+// ==============================
+// CONFIG
+// ==============================
+
+$button-sizes: (
+	xs: (
+		0.25rem,
+		0.75rem,
+	),
+	sm: (
+		0.5rem,
+		1rem,
+	),
+	base: (
+		0.75rem,
+		1.5rem,
+	),
+	lg: (
+		1rem,
+		2rem,
+	),
+	xl: (
+		1.25rem,
+		2.5rem,
+	),
+	"2xl": (
+		1.5rem,
+		3rem,
+	),
+);
+
+// Map button sizes to font variants
+$button-font-map: (
+	xs: text-sm,
+	sm: text-base,
+	base: text-base,
+	lg: text-lg,
+	xl: text-xl,
+	"2xl": text-2xl,
+);
+
+$button-icon-positions: (left, right);
+
+// ==============================
+// MIXINS
+// ==============================
+
+// Size mixin
+@mixin button-size($size, $font-variant) {
+	$padding: map.get($button-sizes, $size);
+
+	@if $padding == null {
+		@error "Unknown button size `#{$size}`. Available: #{map-keys($button-sizes)}";
+	}
+
+	padding: list.nth($padding, 1) list.nth($padding, 2);
+	@include typography($font-variant);
+}
+
+// Primary button style
+@mixin button-primary {
+	background-color: $primary-500;
+	color: $primary-1300;
+	box-shadow: 0 0 25px 0 rgba(68, 229, 231, 0.3);
+
+	&:hover,
+	&:focus {
+		background-color: $primary-600;
+		color: $primary-1200;
+		box-shadow: 0 0 15px 0 rgba(68, 229, 231, 0.1);
+		transform: scale(0.97);
+	}
+
+	&:active {
+		transform: scale(0.94);
+	}
+}
+
+// Secondary button style
+@mixin button-secondary {
+	background-color: transparent;
+	color: $primary-50;
+	border: 0.2rem solid $primary-50;
+
+	&:hover,
+	&:focus {
+		border-color: $primary-500;
+		background-color: $primary-500;
+		color: $primary-1300;
+		transform: scale(0.97);
+	}
+
+	&:active {
+		transform: scale(0.94);
+	}
+}
+
+// ==============================
+// BUTTON STYLES
+// ==============================
+
+.button {
+	// Extension
+	@extend %button-base;
+
+	// ------------------------------
+	// Auto-generate size classes
+	// ------------------------------
+	@each $size, $padding in $button-sizes {
+		&--#{$size} {
+			$font-variant: map.get($button-font-map, $size);
+			@include button-size($size, $font-variant);
+		}
+	}
+
+	// ------------------------------
+	// Variants
+	// ------------------------------
+	&--primary {
+		@include button-primary;
+	}
+	&--secondary {
+		@include button-secondary;
+	}
+
+	// ------------------------------
+	// Icon support
+	// ------------------------------
+	&__icon {
+		@extend %button-icon;
+
+		// Generate left/right modifiers automatically
+		@each $pos in $button-icon-positions {
+			&--#{$pos} {
+				@if $pos == left {
+					margin-right: 0.5rem;
+				} @else if $pos == right {
+					margin-left: 0.5rem;
+				}
+			}
+		}
+	}
+}
