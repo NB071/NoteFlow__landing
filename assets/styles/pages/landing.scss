@@ -1,0 +1,730 @@
+@use "../partials/global" as *;
+@use "../partials/typography" as *;
+@use "../partials/colors" as *;
+@use "../partials/responsive" as *;
+
+// components
+@use "../components/header" as *;
+@use "../components/footer" as *;
+
+.hero {
+	width: 100%;
+	background: linear-gradient(to top, $primary-1300 0%, $primary-1500 100%);
+	padding: 4rem 1rem;
+
+	&__container {
+		@extend %container;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 6.5rem;
+	}
+
+	&__content {
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+
+		// breakpoints
+		@include laptop {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-self: center;
+		}
+	}
+
+	&__content-left {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: start;
+		gap: 1.5rem;
+
+		// breakpoints
+		@include laptop {
+			width: 60%;
+		}
+	}
+	&__title {
+		@include typography(text-3xl);
+		color: $primary-50;
+		// breakpoints
+		@include laptop {
+			@include typography(text-6xl);
+		}
+	}
+
+	&__subtitle {
+		@include typography(text-base);
+		color: $primary-100;
+
+		// breakpoints
+		@include laptop {
+			@include typography(text-xl);
+		}
+	}
+
+	&__image {
+		max-width: 100%;
+
+		// breakpoints
+		@include laptop {
+			min-width: 30%;
+			max-width: 40%;
+		}
+	}
+}
+
+.trusted-avatars {
+	width: 100%;
+	// Styles
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+
+	&__images {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	&__image {
+		position: relative;
+		width: 2.75rem;
+		height: 2.75rem;
+		border-radius: 50%;
+		border: 2px solid $primary-100;
+		background-size: cover;
+		background-position: center;
+		transition: all 0.4s ease-in-out;
+		object-fit: cover;
+
+		// Selectors
+		&:not(:first-child) {
+			margin-left: -1.5rem;
+		}
+
+		// States
+		&:hover {
+			transform: scale(1.2);
+			box-shadow: 0 0 25px $primary-1300;
+			filter: grayscale(0.5);
+			&:first-child {
+				margin-right: 1.75rem;
+			}
+			&:not(:first-child) {
+				margin-left: 0.25rem;
+				margin-right: 1.75rem;
+			}
+		}
+	}
+
+	&__text {
+		@include typography(text-xl);
+		color: $primary-100;
+	}
+
+	&__count {
+		color: $primary-500;
+		font-weight: 700;
+	}
+	// breakpoints
+	@include laptop {
+		flex-direction: row;
+		justify-content: start;
+		align-items: center;
+	}
+}
+
+.companies {
+	width: 100%;
+	background: linear-gradient(
+		to bottom,
+		$primary-1300 0%,
+		$primary-1500 100%
+	);
+	padding: 2rem 1rem;
+	margin-bottom: 10rem;
+
+	&__container {
+		@extend %container;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 3rem;
+	}
+
+	&__header {
+		@include typography(text-lg);
+		color: $primary-50;
+		text-align: center;
+		margin-top: 4rem;
+
+		// breakpoints
+		@include laptop {
+			@include typography(text-xl);
+		}
+	}
+
+	&__highlight {
+		font-weight: 700;
+	}
+
+	&__logos {
+		width: 100%;
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		gap: 4rem 0rem;
+		justify-items: center;
+
+		// breakpoints
+		@include tablet {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 3rem 3rem;
+		}
+
+		@include laptop {
+			grid-template-columns: repeat(4, 1fr);
+			gap: 4rem 4rem;
+		}
+	}
+
+	&__logos-row {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 2rem;
+
+		// breakpoints
+		@include tablet {
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+			gap: 3rem;
+		}
+	}
+
+	&__logo-link {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-decoration: none;
+
+		// States
+		&:hover .companies__logo {
+			transform: scale(1.05);
+		}
+	}
+
+	&__logo {
+		width: 100%;
+		max-width: 10rem;
+		height: auto;
+		object-fit: contain;
+		transition: transform 0.3s ease;
+
+		// States
+		&:hover {
+			transform: scale(1.1);
+			filter: brightness(1.2);
+		}
+	}
+}
+
+.features {
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+
+	&__container {
+		@extend %container;
+	}
+
+	&__header {
+		width: 100%;
+		margin: 8rem 0;
+		@include typography(text-3xl);
+		color: $primary-100;
+		text-align: center;
+
+		// breakpoints
+		@include laptop {
+			@include typography(text-6xl);
+		}
+	}
+
+	&__highlight {
+		position: relative;
+		font-weight: 700;
+		color: $primary-500;
+		text-shadow: 0 0 25px #44e4e730;
+		transition: all 0.3s ease-in-out;
+
+		// Selectors
+		&::after {
+			content: "";
+			position: absolute;
+			left: 0;
+			bottom: -2px;
+			width: 0%;
+			height: 4px;
+			background-color: $primary-500;
+			transition: width 0.3s ease-in-out;
+		}
+
+		// States
+		&:hover {
+			color: $primary-300;
+
+			// Selectors
+			&::after {
+				width: 100%;
+				background-color: $primary-300;
+			}
+		}
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		align-items: start;
+		justify-content: center;
+		gap: 6rem;
+		margin-bottom: 8rem;
+
+		// breakpoints
+		@include laptop {
+			align-items: center;
+			gap: 4rem;
+		}
+	}
+
+	&__item {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: start;
+		gap: 2rem;
+
+		// breakpoints
+		@include laptop {
+			align-items: center;
+			justify-content: space-between;
+
+			&--left {
+				flex-direction: row-reverse;
+			}
+			&--right {
+				flex-direction: row;
+			}
+		}
+	}
+
+	&__image {
+		width: 50%;
+		transition: all 0.3s ease-in-out;
+
+		// States
+		&:hover {
+			transform: scale(1.05) translateY(-10px);
+			filter: grayscale(0.2);
+		}
+
+		// breakpoints
+		@include laptop {
+			min-width: 30%;
+			max-width: 40%;
+		}
+	}
+
+	&__description {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: start;
+		justify-content: center;
+		gap: 2rem;
+
+		// breakpoints
+		@include laptop {
+			width: 50%;
+		}
+	}
+
+	&__title {
+		@include typography(text-3xl);
+		color: $primary-50;
+
+		// breakpoints
+		@include laptop {
+			@include typography(text-5xl);
+		}
+	}
+
+	&__text {
+		@include typography(text-lg);
+		color: $primary-100;
+
+		// breakpoints
+		@include laptop {
+			@include typography(text-xl);
+		}
+	}
+
+	&__decorator {
+		position: absolute;
+		z-index: -1;
+		width: 62.5rem;
+		height: 62.5rem;
+		border-radius: 50%;
+		background-color: #14454550;
+		top: 20%;
+		right: -60%;
+		filter: blur(300px);
+	}
+}
+
+.faq {
+	width: 100%;
+	background: linear-gradient(
+		to bottom,
+		$primary-1500 0%,
+		$primary-1300 100%
+	);
+	&__container {
+		@extend %container;
+	}
+	&__header {
+		@include typography(text-3xl);
+		color: $primary-50;
+		margin-bottom: 2rem;
+
+		// breakpoints
+		@include laptop {
+			text-align: center;
+			@include typography(text-6xl);
+		}
+	}
+
+	&__subtitle {
+		display: none;
+
+		// breakpoints
+		@include laptop {
+			display: block;
+			text-align: center;
+			color: $primary-100;
+			@include typography(text-xl);
+			margin-bottom: 2rem;
+		}
+	}
+
+	&__link {
+		color: $primary-100;
+		transition: all 0.3s ease-in-out;
+
+		// States
+		&:hover {
+			color: $primary-500;
+		}
+	}
+
+	&__filter-buttons {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 1rem;
+		flex-wrap: wrap;
+		margin-bottom: 3rem;
+
+		// breakpoints
+		@include laptop {
+			gap: 2rem;
+		}
+	}
+
+	&__items {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+
+		// breakpoints
+		@include tablet {
+			padding: 0 4rem;
+		}
+		@include laptop {
+			padding: 0 10rem;
+		}
+	}
+
+	&__item {
+		cursor: pointer;
+		background-color: transparent;
+		border-radius: 1rem;
+
+		margin-bottom: 1rem;
+		transition: all 0.3s ease-in-out;
+		padding: 0.5rem 0.5rem;
+
+		// States
+		&:hover {
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			background-color: rgba(255, 255, 255, 0.1);
+		}
+
+		// breakpoints
+		@include tablet {
+			padding: 1rem 1rem;
+		}
+		@include laptop {
+			padding: 1.25rem 1.25rem;
+		}
+	}
+
+	&__summary {
+		display: flex;
+		align-items: center;
+		gap: 1.5rem;
+	}
+
+	&__summary-icon-wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.75rem;
+		border-radius: 0.75rem;
+		border: 2px solid $primary-50;
+	}
+
+	&__summary-icon {
+		width: 1.5rem;
+		height: 1.5rem;
+	}
+
+	&__summary-title {
+		@include typography(text-lg);
+		color: $primary-50;
+		margin-right: auto;
+
+		// breakpoints
+		@include laptop {
+			@include typography(text-xl);
+		}
+	}
+
+	&__summary-arrow {
+		justify-self: end;
+	}
+
+	&__text {
+		color: $primary-100;
+		margin: 0.75rem 0rem 0rem 0rem;
+
+		@include typography(text-base);
+
+		// breakpoints
+		@include laptop {
+			margin: 0.75rem 0rem 0rem 5.5rem;
+			padding-right: 7rem;
+			@include typography(text-lg);
+		}
+	}
+}
+
+.testimonials {
+	width: 100%;
+	background: linear-gradient(
+		to bottom,
+		$primary-1300 0%,
+		$primary-1500 100%
+	);
+
+	&__container {
+		@extend %container;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 4rem;
+	}
+
+	&__header-wrapper {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 2rem;
+		margin-top: 8rem;
+		text-align: center;
+
+		@include laptop {
+			width: 60%;
+			padding: 0;
+		}
+	}
+
+	&__chip {
+		@include typography(text-xs);
+		color: $primary-1300;
+		background-color: $primary-500;
+		padding: 0.5rem 1rem;
+		border-radius: 99rem;
+		box-shadow: 0 0 25px 0 rgba(68, 229, 231, 0.3);
+
+		// breakpoints
+		@include laptop {
+			@include typography(text-base);
+		}
+	}
+
+	&__header {
+		@include typography(text-3xl);
+		color: $primary-50;
+
+		// breakpoints
+		@include laptop {
+			@include typography(text-6xl);
+		}
+	}
+
+	&__subheader {
+		@include typography(text-lg);
+		color: $primary-100;
+		margin-bottom: 2rem;
+
+		// breakpoints
+		@include laptop {
+			@include typography(text-xl);
+		}
+	}
+
+	&__wrapper {
+		column-count: 1;
+		column-gap: 2rem;
+
+		// breakpoints
+		@include tablet {
+			column-count: 2;
+		}
+
+		@include desktop {
+			column-count: 3;
+		}
+
+		// Hide last 3 testimonials on mobile (below tablet breakpoint)
+		@include responsive-max($tablet-breakpoint) {
+			.testimonial:nth-last-child(-n + 3) {
+				display: none;
+			}
+		}
+	}
+}
+
+.testimonial {
+	display: inline-block;
+	width: 100%;
+	break-inside: avoid;
+	margin-bottom: 2rem;
+	padding: 2.5rem 2rem;
+	background-color: $primary-1300;
+	border-radius: 1rem;
+	transition: all 0.3s ease-in-out;
+
+	// States
+	&:hover {
+		background-color: $primary-1200;
+	}
+
+	&__ratings-wrapper {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		margin-bottom: 2.5rem;
+	}
+
+	&__rating-icon {
+		width: 1.5rem;
+		height: 1.5rem;
+		transition: all 0.3s ease-in-out;
+
+		// States
+		&:hover {
+			filter: brightness(1.4);
+		}
+	}
+
+	&__footer {
+		display: flex;
+		align-items: center;
+		gap: 1.5rem;
+	}
+
+	&__text {
+		margin-bottom: 4rem;
+		color: $primary-50;
+		display: -webkit-box;
+		-webkit-line-clamp: 8;
+		line-clamp: 8;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		@include typography(text-base);
+
+		// breakpoints
+		@include laptop {
+			@include typography(text-lg);
+		}
+	}
+
+	&__avatar {
+		width: 4.5rem;
+		height: 4.5rem;
+		border-radius: 50%;
+		object-fit: cover;
+		transition: all 0.3s ease-in-out;
+
+		// States
+		&:hover {
+			transform: scale(1.05);
+			box-shadow: 0 0 25px $primary-1300;
+		}
+	}
+
+	&__author {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	&__author-name {
+		font-size: 1.125rem;
+		font-weight: 700;
+		letter-spacing: 0em;
+		line-height: 2rem;
+		color: $primary-300;
+
+		// breakpoints
+		@include laptop {
+			font-size: 1.25rem;
+			font-weight: 700;
+			letter-spacing: -0.025em;
+			line-height: 1.75rem;
+		}
+	}
+
+	&__designation {
+		@include typography(text-sm);
+		color: $primary-75;
+
+		// breakpoints
+		@include laptop {
+			font-size: 1rem;
+			font-weight: 400;
+			letter-spacing: -0.025em;
+			line-height: 2rem;
+		}
+	}
+}
