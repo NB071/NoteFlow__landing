@@ -1,11 +1,58 @@
+/* Box sizing */
 *,
-*::after,
-*::before {
+*::before,
+*::after {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
 }
 
+/* Typography reset */
+html {
+	line-height: 1.5;
+	-webkit-text-size-adjust: 100%;
+}
+
+/* Media */
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+/* Forms */
+input,
+textarea,
+select,
+button {
+	font: inherit;
+	color: inherit;
+}
+
+/* Links */
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+/* Lists */
+ul,
+ol {
+	list-style: none;
+	padding-left: 0;
+}
+
+/* Tables */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Button reset */
 button {
 	all: unset;
 	box-sizing: border-box;

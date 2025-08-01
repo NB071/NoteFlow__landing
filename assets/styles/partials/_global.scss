@@ -4,17 +4,17 @@
 @use "placeholders" as *;
 @use "reset" as *;
 
-// Global styles
+// Selectors
 ::selection {
 	background-color: $primary-1300;
 	color: $primary-50;
 }
-
 ::-moz-selection {
 	background-color: $primary-1300;
 	color: $primary-50;
 }
 
+// Top-level styles
 body {
 	// styles
 	width: 100%;
@@ -29,37 +29,3 @@ body {
 		@include typography(text-lg);
 	}
 }
-
-// CLASSES --> Buttons
-// .button {
-// 	// extension
-// 	@extend %ctaButton;
-
-// 	&--primary {
-// 		background-color: $primary-500;
-// 		color: $primary-1300;
-// 		box-shadow: 0 0 25px 0 rgba(68, 229, 231, 0.3);
-
-// 		// States
-// 		&:hover,
-// 		&:focus {
-// 			background-color: $primary-600;
-// 			color: $primary-1200;
-// 			box-shadow: 0 0 15px 0 rgba(68, 229, 231, 0.1);
-// 		}
-// 	}
-
-// 	&--secondary {
-// 		background-color: transparent;
-// 		color: $primary-50;
-// 		border: 0.2rem solid $primary-50;
-
-// 		// States
-// 		&:hover,
-// 		&:focus {
-// 			border-color: $primary-500;
-// 			background-color: $primary-500;
-// 			color: $primary-1300;
-// 		}
-// 	}
-// }
