@@ -1,3 +1,5 @@
+@use "./typography" as *;
+
 // breakpoints
 $phone-breakpoint: 480px;
 $tablet-breakpoint: 768px;
@@ -48,5 +50,13 @@ $large-desktop-breakpoint: 1536px;
 @mixin responsive-min($custom-breakpoint) {
 	@media (min-width: $custom-breakpoint) {
 		@content;
+	}
+}
+
+// Responsive typography mixin
+@mixin responsive-typography($mobile, $desktop) {
+	@include typography($mobile);
+	@include laptop {
+		@include typography($desktop);
 	}
 }

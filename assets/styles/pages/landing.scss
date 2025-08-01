@@ -59,13 +59,8 @@
 	}
 
 	&__subtitle {
-		@include typography(text-base);
 		color: $primary-100;
-
-		// breakpoints
-		@include laptop {
-			@include typography(text-xl);
-		}
+		@include responsive-typography(text-base, text-xl);
 	}
 
 	&__image {
@@ -160,15 +155,10 @@
 	}
 
 	&__header {
-		@include typography(text-lg);
 		color: $primary-50;
 		text-align: center;
 		margin-top: 4rem;
-
-		// breakpoints
-		@include laptop {
-			@include typography(text-xl);
-		}
+		@include responsive-typography(text-lg, text-xl);
 	}
 
 	&__highlight {
@@ -249,14 +239,9 @@
 	&__header {
 		width: 100%;
 		margin: 8rem 0;
-		@include typography(text-3xl);
 		color: $primary-100;
 		text-align: center;
-
-		// breakpoints
-		@include laptop {
-			@include typography(text-6xl);
-		}
+		@include responsive-typography(text-3xl, text-6xl);
 	}
 
 	&__highlight {
@@ -358,23 +343,13 @@
 	}
 
 	&__title {
-		@include typography(text-3xl);
 		color: $primary-50;
-
-		// breakpoints
-		@include laptop {
-			@include typography(text-5xl);
-		}
+		@include responsive-typography(text-3xl, text-5xl);
 	}
 
 	&__text {
-		@include typography(text-lg);
 		color: $primary-100;
-
-		// breakpoints
-		@include laptop {
-			@include typography(text-xl);
-		}
+		@include responsive-typography(text-lg, text-xl);
 	}
 
 	&__decorator {
@@ -401,26 +376,25 @@
 		@extend %container;
 	}
 	&__header {
-		@include typography(text-3xl);
 		color: $primary-50;
 		margin-bottom: 2rem;
+		@include responsive-typography(text-6xl, text-3xl);
 
 		// breakpoints
 		@include laptop {
 			text-align: center;
-			@include typography(text-6xl);
 		}
 	}
 
 	&__subtitle {
 		display: none;
+		@include responsive-typography(text-lg, text-xl);
 
 		// breakpoints
 		@include laptop {
 			display: block;
 			text-align: center;
 			color: $primary-100;
-			@include typography(text-xl);
 			margin-bottom: 2rem;
 		}
 	}
@@ -508,14 +482,9 @@
 	}
 
 	&__summary-title {
-		@include typography(text-lg);
 		color: $primary-50;
 		margin-right: auto;
-
-		// breakpoints
-		@include laptop {
-			@include typography(text-xl);
-		}
+		@include responsive-typography(text-lg, text-xl);
 	}
 
 	&__summary-arrow {
@@ -525,14 +494,12 @@
 	&__text {
 		color: $primary-100;
 		margin: 0.75rem 0rem 0rem 0rem;
-
-		@include typography(text-base);
+		@include responsive-typography(text-base, text-lg);
 
 		// breakpoints
 		@include laptop {
 			margin: 0.75rem 0rem 0rem 5.5rem;
 			padding-right: 7rem;
-			@include typography(text-lg);
 		}
 	}
 }
@@ -569,38 +536,23 @@
 	}
 
 	&__chip {
-		@include typography(text-xs);
 		color: $primary-1300;
 		background-color: $primary-500;
 		padding: 0.5rem 1rem;
 		border-radius: 99rem;
 		box-shadow: 0 0 25px 0 rgba(68, 229, 231, 0.3);
-
-		// breakpoints
-		@include laptop {
-			@include typography(text-base);
-		}
+		@include responsive-typography(text-xs, text-base);
 	}
 
 	&__header {
-		@include typography(text-3xl);
 		color: $primary-50;
-
-		// breakpoints
-		@include laptop {
-			@include typography(text-6xl);
-		}
+		@include responsive-typography(text-6xl, text-3xl);
 	}
 
 	&__subheader {
-		@include typography(text-lg);
 		color: $primary-100;
 		margin-bottom: 2rem;
-
-		// breakpoints
-		@include laptop {
-			@include typography(text-xl);
-		}
+		@include responsive-typography(text-lg, text-xl);
 	}
 
 	&__wrapper {
@@ -673,12 +625,7 @@
 		-webkit-box-orient: vertical;
 		overflow: hidden;
 		text-overflow: ellipsis;
-		@include typography(text-base);
-
-		// breakpoints
-		@include laptop {
-			@include typography(text-lg);
-		}
+		@include responsive-typography(text-base, text-lg);
 	}
 
 	&__avatar {
