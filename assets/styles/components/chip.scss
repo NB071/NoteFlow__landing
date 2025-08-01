@@ -1,0 +1,65 @@
+@use "../partials/typography" as *;
+@use "../partials/_colors" as *;
+@use "../partials/_responsive" as *;
+@use "../partials/placeholders" as *;
+
+// ==============================
+// MIXINS
+// ==============================
+
+// Primary variant
+@mixin chip-primary {
+	color: $primary-1300;
+	background-color: $primary-500;
+	box-shadow: 0 0 25px 0 rgba(68, 229, 231, 0.3);
+
+	&:hover {
+		background-color: $primary-600;
+		box-shadow: 0 0 15px 0 rgba(68, 229, 231, 0.2);
+	}
+}
+
+// Secondary variant
+@mixin chip-secondary {
+	color: $primary-50;
+	background-color: transparent;
+	border: 0.15rem solid $primary-50;
+
+	&:hover {
+		border-color: $primary-500;
+		background-color: $primary-500;
+		color: $primary-1300;
+	}
+}
+
+// ==============================
+// CHIP STYLES
+// ==============================
+
+.chip {
+	@extend %chip-base;
+
+	&--primary {
+		@include chip-primary;
+	}
+
+	&--secondary {
+		@include chip-secondary;
+	}
+
+	// Icon element
+	&__icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 1em;
+		height: 1em;
+
+		&--left {
+			margin-right: 0.25rem;
+		}
+		&--right {
+			margin-left: 0.25rem;
+		}
+	}
+}

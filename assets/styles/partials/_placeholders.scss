@@ -106,3 +106,30 @@
 		height: 100%;
 	}
 }
+
+// Chip base style
+%chip-base {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.25rem;
+	border-radius: 99rem;
+	padding: 0.5rem 1rem;
+	cursor: default;
+	user-select: none;
+	text-decoration: none;
+	transition: all 0.2s ease-in-out;
+
+	@include typography(text-xs);
+
+	@include laptop {
+		@include typography(text-base);
+	}
+
+	img,
+	svg {
+		width: 1em;
+		height: 1em;
+		display: block;
+	}
+}
