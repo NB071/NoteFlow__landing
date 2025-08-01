@@ -1,0 +1,5 @@
+// This file contains general-purpose mixins
+
+@mixin gradient-bg($direction, $start, $end) {
+	background: linear-gradient($direction, $start 0%, $end 100%);
+}

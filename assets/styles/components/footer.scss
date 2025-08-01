@@ -2,11 +2,12 @@
 @use "../partials/_colors" as *;
 @use "../partials/_responsive" as *;
 @use "../partials/_global" as *;
+@use "../partials/mixins" as *;
 
 .footer {
 	width: 100%;
 	margin-top: 2rem;
-	background: linear-gradient(to top, $primary-1300 0%, $primary-1500 100%);
+	@include gradient-bg(to top, $primary-1300, $primary-1500);
 
 	&__container {
 		@extend %container;

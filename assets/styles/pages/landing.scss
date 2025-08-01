@@ -2,6 +2,7 @@
 @use "../partials/typography" as *;
 @use "../partials/colors" as *;
 @use "../partials/responsive" as *;
+@use "../partials/mixins" as *;
 
 // components
 @use "../components/header" as *;
@@ -11,7 +12,7 @@
 
 .hero {
 	width: 100%;
-	background: linear-gradient(to top, $primary-1300 0%, $primary-1500 100%);
+	@include gradient-bg(to top, $primary-1300, $primary-1500);
 	padding: 4rem 1rem;
 
 	&__container {
@@ -137,11 +138,7 @@
 
 .companies {
 	width: 100%;
-	background: linear-gradient(
-		to bottom,
-		$primary-1300 0%,
-		$primary-1500 100%
-	);
+	@include gradient-bg(to bottom, $primary-1300, $primary-1500);
 	padding: 2rem 1rem;
 	margin-bottom: 10rem;
 
@@ -367,11 +364,8 @@
 
 .faq {
 	width: 100%;
-	background: linear-gradient(
-		to bottom,
-		$primary-1500 0%,
-		$primary-1300 100%
-	);
+	@include gradient-bg(to bottom, $primary-1500, $primary-1300);
+
 	&__container {
 		@extend %container;
 	}
@@ -506,11 +500,7 @@
 
 .testimonials {
 	width: 100%;
-	background: linear-gradient(
-		to bottom,
-		$primary-1300 0%,
-		$primary-1500 100%
-	);
+	@include gradient-bg(to bottom, $primary-1300, $primary-1500);
 
 	&__container {
 		@extend %container;
