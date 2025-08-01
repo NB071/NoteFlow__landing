@@ -1,0 +1,66 @@
+@use "../partials/typography" as *;
+@use "../partials/_colors" as *;
+@use "../partials/_responsive" as *;
+
+// EXTEND CLASSES
+
+// EXTEND CLASSES --> containers
+%container {
+	padding: 0 1rem;
+	margin: 0 auto;
+
+	// breakpoints
+	@include tablet {
+		padding: 0 2.25rem;
+	}
+	@include desktop {
+		width: 1280px;
+	}
+}
+
+// EXTEND CLASSES --> labels and buttons
+%labelsAndButtons {
+	font-family: $font-family-primary;
+	@include typography(text-base);
+
+	// breakpoints
+	@include tablet {
+		@include typography(text-lg);
+	}
+}
+
+// EXTEND CLASSES --> CTA button style
+%ctaButton {
+	// extension
+	@extend %labelsAndButtons;
+
+	// styles
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.75rem;
+	background-color: $primary-500;
+	color: $primary-1300;
+	border: none;
+	padding: 1rem 2rem;
+	text-wrap: nowrap;
+	border-radius: 28rem;
+	transition: all 0.3s ease-in-out;
+	cursor: pointer;
+	text-decoration: none;
+
+	// States
+	&:hover,
+	&:focus {
+		transform: scale(0.97);
+		outline: none;
+	}
+	&:active {
+		transform: scale(0.94);
+	}
+	&:disabled {
+		opacity: 0.6;
+		cursor: not-allowed;
+		pointer-events: none;
+	}
+}
