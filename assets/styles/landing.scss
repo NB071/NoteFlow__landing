@@ -95,32 +95,11 @@
 		background-size: cover;
 		background-position: center;
 		transition: all 0.4s ease-in-out;
+		object-fit: cover;
 
 		// Selectors
 		&:not(:first-child) {
 			margin-left: -1.5rem;
-		}
-
-		// assign images dynamically
-		&:nth-child(1) {
-			background-image: url("/assets/images/trusted-avatars/1.jpg");
-			z-index: 1;
-		}
-		&:nth-child(2) {
-			background-image: url("/assets/images/trusted-avatars/2.jpg");
-			z-index: 2;
-		}
-		&:nth-child(3) {
-			background-image: url("/assets/images/trusted-avatars/3.jpg");
-			z-index: 3;
-		}
-		&:nth-child(4) {
-			background-image: url("/assets/images/trusted-avatars/4.jpg");
-			z-index: 4;
-		}
-		&:nth-child(5) {
-			background-image: url("/assets/images/trusted-avatars/5.jpg");
-			z-index: 5;
 		}
 
 		// States
