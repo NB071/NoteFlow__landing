@@ -230,3 +230,93 @@ body {
 		}
 	}
 }
+
+// Footer
+.footer {
+	width: 100%;
+	margin-top: 2rem;
+	background: linear-gradient(to top, $primary-1300 0%, $primary-1500 100%);
+
+	&__container {
+		@extend %container;
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		flex-wrap: wrap;
+		padding: 6.25rem 1.5rem;
+
+		// breakpoints
+		@include laptop {
+			padding: 8rem 6.25rem;
+			flex-direction: row;
+			justify-content: space-between;
+			gap: 4rem;
+		}
+	}
+
+	&__logo-link {
+		text-decoration: none;
+		transition: all 0.3s ease-in-out;
+		margin-bottom: auto;
+
+		// States
+		&:hover {
+			opacity: 0.8;
+			transform: scale(1.05);
+		}
+	}
+
+	&__navigation {
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		column-gap: 4rem;
+		row-gap: 3.625rem;
+
+		// breakpoints
+		@include tablet {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		@include laptop {
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
+
+	&__navigation-title {
+		font-size: 1.125rem;
+		font-weight: $font-weight-semibold;
+		color: $primary-50;
+		letter-spacing: $letter-spacing-tight-2xl;
+		line-height: $line-height-lg;
+		margin-bottom: 2rem;
+
+		// breakpoints
+		@include laptop {
+			font-size: 1.25rem;
+			line-height: $line-height-xl;
+		}
+	}
+
+	&__navigation-links {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	&__navigation-link {
+		color: $primary-100;
+		text-decoration: none;
+		@include typography(text-base);
+		transition: color 0.3s ease-in-out;
+
+		// States
+		&:hover {
+			color: $primary-250;
+		}
+
+		// breakpoints
+		@include laptop {
+			@include typography(text-lg);
+		}
+	}
+}
