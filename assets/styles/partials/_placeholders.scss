@@ -2,9 +2,7 @@
 @use "../partials/_colors" as *;
 @use "../partials/_responsive" as *;
 
-// EXTEND CLASSES
-
-// EXTEND CLASSES --> containers
+// Container base styles
 %container {
 	padding: 0 1rem;
 	margin: 0 auto;
@@ -18,60 +16,7 @@
 	}
 }
 
-// EXTEND CLASSES --> labels and buttons
-// %labelsAndButtons {
-// 	font-family: $font-family-primary;
-// 	@include typography(text-base);
-
-// 	// breakpoints
-// 	@include tablet {
-// 		@include typography(text-lg);
-// 	}
-// }
-
-// EXTEND CLASSES --> CTA button style
-// %ctaButton {
-// 	// extension
-// 	@extend %labelsAndButtons;
-
-// 	// styles
-// 	display: inline-flex;
-// 	align-items: center;
-// 	justify-content: center;
-// 	gap: 0.75rem;
-// 	line-height: normal;
-// 	background-color: $primary-500;
-// 	font-style: normal;
-// 	padding: 1rem 2rem;
-// 	border: none;
-// 	border-radius: 28rem;
-// 	text-wrap: nowrap;
-// 	text-decoration: none;
-// 	color: $primary-1300;
-// 	white-space: nowrap;
-// 	outline: none;
-// 	user-select: none;
-// 	touch-action: manipulation;
-// 	cursor: pointer;
-// 	transition: all 0.3s ease-in-out;
-
-// 	// States
-// 	&:hover,
-// 	&:focus {
-// 		transform: scale(0.97);
-// 		outline: none;
-// 	}
-// 	&:active {
-// 		transform: scale(0.94);
-// 	}
-// 	&:disabled {
-// 		opacity: 0.6;
-// 		cursor: not-allowed;
-// 		pointer-events: none;
-// 	}
-// }
-
-// Base button style
+// Base button styles
 %button-base {
 	display: inline-flex;
 	align-items: center;
@@ -91,7 +36,7 @@
 	}
 }
 
-// Icon style
+// Base icon styles
 %button-icon {
 	display: inline-flex;
 	align-items: center;
@@ -107,7 +52,7 @@
 	}
 }
 
-// Chip base style
+// Base chip styles
 %chip-base {
 	display: inline-flex;
 	align-items: center;
