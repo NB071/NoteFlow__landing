@@ -1,6 +1,7 @@
 @use "../partials/typography" as *;
 @use "../partials/_colors" as *;
 @use "../partials/_responsive" as *;
+@use "../partials/mixins" as *;
 
 // Container base styles
 %container {
@@ -18,16 +19,13 @@
 
 // Base button styles
 %button-base {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	gap: 0.5rem;
 	border-radius: 28rem;
 	cursor: pointer;
 	user-select: none;
 	border: none;
 	text-wrap: nowrap;
 	text-decoration: none;
+	@include inline-flex(row, center, center, nowrap, 0.5rem);
 
 	&:disabled {
 		opacity: 0.6;
@@ -37,12 +35,10 @@
 
 // Base icon styles
 %button-icon {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
+	flex-shrink: 0;
 	width: 1.25em;
 	height: 1.25em;
-	flex-shrink: 0;
+	@include inline-flex(row, center, center, nowrap);
 
 	img,
 	svg {
@@ -53,16 +49,12 @@
 
 // Base chip styles
 %chip-base {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	gap: 0.25rem;
 	border-radius: 99rem;
 	padding: 0.5rem 1rem;
 	cursor: default;
 	user-select: none;
 	text-decoration: none;
-
+	@include inline-flex(row, center, center, nowrap, 0.25rem);
 	@include typography(text-xs);
 
 	@include laptop {
@@ -71,8 +63,8 @@
 
 	img,
 	svg {
+		display: block;
 		width: 1em;
 		height: 1em;
-		display: block;
 	}
 }

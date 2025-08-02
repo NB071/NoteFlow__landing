@@ -151,8 +151,10 @@ $font-sizes: (
 	$letter-spacing: list.nth($settings, 3);
 	$font-weight: list.nth($settings, 4);
 
-	font-size: $font-size;
-	line-height: $line-height;
-	letter-spacing: $letter-spacing;
-	font-weight: $font-weight;
+	& {
+		font-size: $font-size;
+		line-height: $line-height;
+		letter-spacing: $letter-spacing;
+		font-weight: $font-weight;
+	}
 }

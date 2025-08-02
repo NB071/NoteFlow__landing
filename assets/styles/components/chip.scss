@@ -59,9 +59,7 @@
 
 	// Icon element
 	&__icon {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
+		@include inline-flex(row, center, center);
 		width: 1em;
 		height: 1em;
 

@@ -20,8 +20,6 @@
 		0.3s
 	);
 
-	transition: all $transition ease-in-out;
-
 	&:hover {
 		@if $transform {
 			transform: $transform;
@@ -42,4 +40,79 @@
 			border-color: $bdr-color;
 		}
 	}
+
+	& {
+		transition: all $transition ease-in-out;
+	}
+}
+
+// Mixins for flexbox layouts
+@mixin flex-variant(
+	$display,
+	$direction: false,
+	$align: false,
+	$justify: false,
+	$wrap: false,
+	$gap: false
+) {
+	display: $display;
+
+	@if $direction {
+		flex-direction: $direction;
+	}
+
+	@if $align {
+		align-items: $align;
+	}
+
+	@if $justify {
+		justify-content: $justify;
+	}
+
+	@if $wrap {
+		flex-wrap: $wrap;
+	}
+
+	@if $gap {
+		gap: $gap;
+	}
+
+	// fix
+	& > * {
+		min-width: 0;
+	}
+}
+
+@mixin flex(
+	$direction: false,
+	$align: false,
+	$justify: false,
+	$wrap: false,
+	$gap: false
+) {
+	@include flex-variant(
+		flex,
+		$direction: $direction,
+		$align: $align,
+		$justify: $justify,
+		$wrap: $wrap,
+		$gap: $gap
+	);
+}
+
+@mixin inline-flex(
+	$direction: false,
+	$align: false,
+	$justify: false,
+	$wrap: false,
+	$gap: false
+) {
+	@include flex-variant(
+		inline-flex,
+		$direction: $direction,
+		$align: $align,
+		$justify: $justify,
+		$wrap: $wrap,
+		$gap: $gap
+	);
 }
