@@ -3,19 +3,51 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="theme-color" content="#44e5e7" />
+		<meta name="author" content="Nima Bargestan" />
+		<meta name="robots" content="index, follow" />
 		<meta
 			name="description"
 			content="NoteFlow - A clean, mobile-first landing page."
 		/>
+
+		<!-- Open Graph / Social Sharing -->
+		<meta property="og:title" content="NoteFlow – Smart Note Management" />
+		<meta
+			property="og:description"
+			content="Organize, capture, and manage your notes effortlessly with NoteFlow."
+		/>
+		<meta
+			property="og:image"
+			content="http://127.0.0.1/assets/images/Preview-OG.png"
+		/>
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://yourdomain.com/" />
+
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="NoteFlow – Smart Note Management" />
+		<meta
+			name="twitter:description"
+			content="Organize, capture, and manage your notes effortlessly with NoteFlow."
+		/>
+		<meta
+			name="twitter:image"
+			content="https://yourdomain.com/assets/images/Preview-OG.png"
+		/>
+
+		<!-- Styles and Scripts -->
 		<link rel="stylesheet" href="assets/styles/pages/landing.css" />
 		<script type="module" src="assets/js/pages/landing.js" defer></script>
+		<link rel="icon" href="assets/images/favicon.ico" type="image/x-icon" />
 		<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
 
 		<title>Landing: NoteFlow</title>
 	</head>
 	<body>
 		<!-- Header section -->
-		<header class="header">
+		<header class="header" role="banner">
 			<div class="header__container">
 				<!-- Header logo sub-section -->
 				<a href="/" class="header__logo-link">
@@ -27,10 +59,16 @@
 				</a>
 
 				<!-- Header navigation sub-section -->
-				<nav class="header__navigation">
+				<nav
+					class="header__navigation"
+					role="navigation"
+					aria-label="Main"
+				>
 					<ul class="header__list">
 						<li class="header__item header__item--selected">
-							<a href="#" class="header__link">Home</a>
+							<a href="#" class="header__link" aria-current="page"
+								>Home</a
+							>
 						</li>
 						<li class="header__item">
 							<a href="#" class="header__link">Pricing</a>
@@ -45,33 +83,46 @@
 				</nav>
 
 				<!-- Header authentication sub-section -->
-				<section class="header__buttons">
-					<button class="button button--secondary button--base">
+				<section class="header__buttons" aria-label="User Actions">
+					<button
+						class="button button--secondary button--base"
+						aria-label="Login to your NoteFlow account"
+					>
 						Login
 					</button>
-					<button class="button button--primary button--base">
+					<button
+						class="button button--primary button--base"
+						aria-label="Get started with NoteFlow"
+					>
 						Get Started
 					</button>
 				</section>
 
 				<!-- Header hamburger menu -->
-				<img
-					src="assets/images/icons/Menu.png"
-					alt="Hamburger Menu"
+				<button
 					class="header__hamburger-menu"
-				/>
+					aria-label="Open menu"
+					aria-controls="main-navigation"
+					aria-expanded="false"
+				>
+					<img
+						src="assets/images/icons/Menu.png"
+						alt=""
+						aria-hidden="true"
+					/>
+				</button>
 			</div>
 		</header>
 
 		<!-- Main section -->
 		<main class="main">
 			<!-- Main Hero section -->
-			<section class="hero">
+			<section class="hero" aria-labelledby="hero-title">
 				<div class="hero__container">
 					<div class="hero__content">
 						<!-- Hero section (Left) -->
 						<div class="hero__content-left">
-							<h1 class="hero__title">
+							<h1 class="hero__title" id="hero-title">
 								AI-Powered Notes. Organize and <br />Summarize
 								in Seconds
 							</h1>
@@ -81,10 +132,14 @@
 							</p>
 							<button class="button button--primary button--base">
 								Get Started
-								<span class="button__icon button__icon--right">
+								<span
+									class="button__icon button__icon--right"
+									aria-hidden="true"
+								>
 									<img
 										src="assets/images/icons/arrow-right.png"
-										alt="Arrow Right Icon"
+										alt=""
+										role="presentation"
 									/>
 								</span>
 							</button>
@@ -93,38 +148,41 @@
 						<!-- Hero section (Right) -->
 						<img
 							src="assets/images/hero-image-R.png"
-							alt="Hero Image"
+							alt=""
 							class="hero__image"
 						/>
 					</div>
 
 					<!-- Hero Trusted avatars -->
-					<div class="trusted-avatars">
+					<div
+						class="trusted-avatars"
+						aria-label="Trusted by over twelve thousand users"
+					>
 						<!-- Trusted avatars images (Left) -->
 						<div class="trusted-avatars__images">
 							<img
 								src="assets/images/avatars/trusted-avatars/1.jpg"
-								alt="Trusted avatar 1"
+								alt=""
 								class="trusted-avatars__image"
 							/>
 							<img
 								src="assets/images/avatars/trusted-avatars/2.jpg"
-								alt="Trusted avatar 2"
+								alt=""
 								class="trusted-avatars__image"
 							/>
 							<img
 								src="assets/images/avatars/trusted-avatars/3.jpg"
-								alt="Trusted avatar 3"
+								alt=""
 								class="trusted-avatars__image"
 							/>
 							<img
 								src="assets/images/avatars/trusted-avatars/4.jpg"
-								alt="Trusted avatar 4"
+								alt=""
 								class="trusted-avatars__image"
 							/>
 							<img
 								src="assets/images/avatars/trusted-avatars/5.jpg"
-								alt="Trusted avatar 5"
+								alt=""
 								class="trusted-avatars__image"
 							/>
 						</div>
@@ -132,7 +190,11 @@
 						<!-- Trusted avatars text (Right) -->
 						<p class="trusted-avatars__text">
 							Trusted by
-							<span class="trusted-avatars__count">12,653+</span>
+							<span
+								class="trusted-avatars__count"
+								aria-label="twelve thousand six hundred fifty three plus users"
+								>12,653+</span
+							>
 							productivity junkies
 						</p>
 					</div>
@@ -140,100 +202,124 @@
 			</section>
 
 			<!-- Main Companies section -->
-			<section class="companies">
+			<section class="companies" aria-labelledby="companies-header">
 				<div class="companies__container">
 					<!-- Companies header -->
-					<h2 class="companies__header">
+					<h2 class="companies__header" id="companies-header">
 						Organizations powered by
 						<span class="companies__highlight">NoteFlow</span>
 					</h2>
 
 					<!-- Companies logos (container) -->
 					<div class="companies__logos">
-						<!-- Companies logos (Row 1) -->
+						<!-- Row 1 -->
 						<a
 							href="https://www.netflix.com"
 							class="companies__logo-link"
 							target="_blank"
 							rel="noopener noreferrer"
-							><img
+						>
+							<img
 								src="/assets/images/companies/Netflix.png"
+								alt="Netflix logo"
 								class="companies__logo"
-						/></a>
+							/>
+						</a>
 						<a
 							href="https://www.exxonmobil.com"
 							class="companies__logo-link"
 							target="_blank"
 							rel="noopener noreferrer"
-							><img
+						>
+							<img
 								src="/assets/images/companies/Exxon Mobile.png"
+								alt="ExxonMobil logo"
 								class="companies__logo"
-						/></a>
+							/>
+						</a>
 						<a
 							href="https://www.microsoft.com"
 							class="companies__logo-link"
 							target="_blank"
 							rel="noopener noreferrer"
-							><img
+						>
+							<img
 								src="/assets/images/companies/Microsoft.png"
+								alt="Microsoft logo"
 								class="companies__logo"
-						/></a>
+							/>
+						</a>
 						<a
 							href="https://www.vice.com"
 							class="companies__logo-link"
 							target="_blank"
 							rel="noopener noreferrer"
-							><img
+						>
+							<img
 								src="/assets/images/companies/Vice.png"
+								alt="Vice logo"
 								class="companies__logo"
-						/></a>
+							/>
+						</a>
 
-						<!-- Companies logos (Row 2) -->
+						<!-- Row 2 -->
 						<a
 							href="https://www.walmart.com"
 							class="companies__logo-link"
 							target="_blank"
 							rel="noopener noreferrer"
-							><img
+						>
+							<img
 								src="/assets/images/companies/Walmart.png"
+								alt="Walmart logo"
 								class="companies__logo"
-						/></a>
+							/>
+						</a>
 						<a
 							href="https://www.chase.com"
 							class="companies__logo-link"
 							target="_blank"
 							rel="noopener noreferrer"
-							><img
+						>
+							<img
 								src="/assets/images/companies/Chase.png"
+								alt="Chase Bank logo"
 								class="companies__logo"
-						/></a>
+							/>
+						</a>
 						<a
 							href="https://www.visa.com"
 							class="companies__logo-link"
 							target="_blank"
 							rel="noopener noreferrer"
-							><img
+						>
+							<img
 								src="/assets/images/companies/VISA.png"
+								alt="Visa logo"
 								class="companies__logo"
-						/></a>
+							/>
+						</a>
 						<a
 							href="https://www.amazon.com"
 							class="companies__logo-link"
 							target="_blank"
 							rel="noopener noreferrer"
-							><img
+						>
+							<img
 								src="/assets/images/companies/Amazon.png"
+								alt="Amazon logo"
 								class="companies__logo"
-						/></a>
+							/>
+						</a>
 					</div>
 				</div>
 			</section>
 
 			<!-- Main features section -->
-			<section class="features">
+			<section class="features" aria-labelledby="features-header">
 				<div class="features__container">
 					<!-- Features header -->
-					<h2 class="features__header">
+					<h2 class="features__header" id="features-header">
 						All The Tools You Need to <br />
 						<span class="features__highlight">Supercharge</span>
 						Your Note Taking
@@ -261,7 +347,7 @@
 							<!-- Feature image -->
 							<img
 								src="/assets/images/Feature(1)-image-L.png"
-								alt="Feature 1"
+								alt="Illustration showing AI automatically organizing notes into categories"
 								class="features__image"
 							/>
 						</div>
@@ -286,20 +372,23 @@
 							<!-- Feature image -->
 							<img
 								src="/assets/images/Feature(2)-image-R.png"
-								alt="Feature 2"
+								alt="Illustration showing AI generating reminders and alerts from notes"
 								class="features__image"
 							/>
 						</div>
 					</div>
 				</div>
-				<div class="features__decorator"></div>
+				<!-- Decorative side circle -->
+				<div class="features__decorator" aria-hidden="true"></div>
 			</section>
 
 			<!-- Main FAQ section -->
-			<section class="faq">
+			<section class="faq" aria-labelledby="faq-header">
 				<div class="faq__container">
 					<!-- FAQ header -->
-					<h2 class="faq__header">Frequently Asked Questions</h2>
+					<h2 class="faq__header" id="faq-header">
+						Frequently Asked Questions
+					</h2>
 
 					<!-- FAQ sub-header -->
 					<p class="faq__subtitle">
@@ -313,39 +402,59 @@
 					<!-- FAQ container -->
 					<div class="faq__content">
 						<!-- FAQ filter buttons -->
-						<div class="faq__filter-buttons">
-							<button class="button button--primary button--sm">
+						<div
+							class="faq__filter-buttons"
+							role="tablist"
+							aria-label="FAQ categories"
+						>
+							<button
+								class="button button--primary button--sm"
+								role="tab"
+								aria-selected="true"
+							>
 								General
 							</button>
-							<button class="button button--secondary button--sm">
+							<button
+								class="button button--secondary button--sm"
+								role="tab"
+							>
 								Pricing
 							</button>
-							<button class="button button--secondary button--sm">
+							<button
+								class="button button--secondary button--sm"
+								role="tab"
+							>
 								Features
 							</button>
-							<button class="button button--secondary button--sm">
+							<button
+								class="button button--secondary button--sm"
+								role="tab"
+							>
 								Integrations
 							</button>
 						</div>
 
 						<!-- FAQ items -->
 						<div class="faq__items">
+							<!-- FAQ item 1 -->
 							<details class="faq__item">
 								<summary class="faq__summary">
 									<div class="faq__summary-icon-wrapper">
 										<img
 											src="assets/images/icons/Note.png"
-											alt="Note Icon"
+											alt=""
 											class="faq__summary-icon"
+											aria-hidden="true"
 										/>
 									</div>
 									<h3 class="faq__summary-title">
 										What is NoteFlow?
 									</h3>
 									<img
-										src="assets/images/icons/Arrow up.png"
-										alt="Arrow Down Icon"
+										src="assets/images/icons/Arrow down.png"
+										alt=""
 										class="faq__summary-arrow"
+										aria-hidden="true"
 									/>
 								</summary>
 
@@ -356,13 +465,15 @@
 								</p>
 							</details>
 
+							<!-- FAQ item 2 -->
 							<details class="faq__item">
 								<summary class="faq__summary">
 									<div class="faq__summary-icon-wrapper">
 										<img
 											src="assets/images/icons/Magic Pen.png"
-											alt="Magic Pen Icon"
+											alt=""
 											class="faq__summary-icon"
+											aria-hidden="true"
 										/>
 									</div>
 									<h3 class="faq__summary-title">
@@ -371,8 +482,9 @@
 									</h3>
 									<img
 										src="assets/images/icons/Arrow down.png"
-										alt="Arrow Down Icon"
+										alt=""
 										class="faq__summary-arrow"
+										aria-hidden="true"
 									/>
 								</summary>
 
@@ -385,13 +497,15 @@
 								</p>
 							</details>
 
+							<!-- FAQ item 3 -->
 							<details class="faq__item">
 								<summary class="faq__summary">
 									<div class="faq__summary-icon-wrapper">
 										<img
 											src="assets/images/icons/Profile 2 users.png"
-											alt="Collaborate Icon"
+											alt=""
 											class="faq__summary-icon"
+											aria-hidden="true"
 										/>
 									</div>
 									<h3 class="faq__summary-title">
@@ -400,8 +514,9 @@
 									</h3>
 									<img
 										src="assets/images/icons/Arrow down.png"
-										alt="Arrow Down Icon"
+										alt=""
 										class="faq__summary-arrow"
+										aria-hidden="true"
 									/>
 								</summary>
 
@@ -412,13 +527,15 @@
 								</p>
 							</details>
 
+							<!-- FAQ item 4 -->
 							<details class="faq__item">
 								<summary class="faq__summary">
 									<div class="faq__summary-icon-wrapper">
 										<img
 											src="assets/images/icons/Cloud Add.png"
-											alt="Cloud Icon"
+											alt=""
 											class="faq__summary-icon"
+											aria-hidden="true"
 										/>
 									</div>
 									<h3 class="faq__summary-title">
@@ -427,8 +544,9 @@
 									</h3>
 									<img
 										src="assets/images/icons/Arrow down.png"
-										alt="Arrow Down Icon"
+										alt=""
 										class="faq__summary-arrow"
+										aria-hidden="true"
 									/>
 								</summary>
 
@@ -438,13 +556,15 @@
 								</p>
 							</details>
 
+							<!-- FAQ item 5 -->
 							<details class="faq__item">
 								<summary class="faq__summary">
 									<div class="faq__summary-icon-wrapper">
 										<img
 											src="assets/images/icons/security safe.png"
-											alt="Lock Icon"
+											alt=""
 											class="faq__summary-icon"
+											aria-hidden="true"
 										/>
 									</div>
 									<h3 class="faq__summary-title">
@@ -452,8 +572,9 @@
 									</h3>
 									<img
 										src="assets/images/icons/Arrow down.png"
-										alt="Arrow Down Icon"
+										alt=""
 										class="faq__summary-arrow"
+										aria-hidden="true"
 									/>
 								</summary>
 
@@ -468,7 +589,7 @@
 			</section>
 
 			<!-- Main Testimonials section -->
-			<section class="testimonials">
+			<section class="testimonials" aria-labelledby="testimonials-header">
 				<div class="testimonials__container">
 					<div class="testimonials__header-wrapper">
 						<!-- Testimonials Chip title -->
@@ -477,7 +598,10 @@
 						</span>
 
 						<!-- Testimonials header -->
-						<h2 class="testimonials__header">
+						<h2
+							class="testimonials__header"
+							id="testimonials-header"
+						>
 							What our AI-powered notetakers have to say
 						</h2>
 
@@ -493,35 +617,48 @@
 					<!-- Testimonials container (Grid) -->
 					<div class="testimonials__wrapper">
 						<!-- Testimonial (Col 1) -->
-						<article class="testimonial">
+						<article
+							class="testimonial"
+							role="listitem"
+							aria-label="Testimonial from Emily Thompson"
+						>
 							<!-- Card header -->
 							<div class="testimonial__header">
 								<!-- ratings -->
-								<div class="testimonial__ratings-wrapper">
+								<div
+									class="testimonial__ratings-wrapper"
+									role="img"
+									aria-label="5 out of 5 stars"
+								>
 									<img
 										src="assets/images/icons/star-fill.png"
-										alt="Star Icon"
+										alt=""
 										class="testimonial__rating-icon"
+										aria-hidden="true"
 									/>
 									<img
 										src="assets/images/icons/star-fill.png"
-										alt="Star Icon"
+										alt=""
 										class="testimonial__rating-icon"
+										aria-hidden="true"
 									/>
 									<img
 										src="assets/images/icons/star-fill.png"
-										alt="Star Icon"
+										alt=""
 										class="testimonial__rating-icon"
+										aria-hidden="true"
 									/>
 									<img
 										src="assets/images/icons/star-fill.png"
-										alt="Star Icon"
+										alt=""
 										class="testimonial__rating-icon"
+										aria-hidden="true"
 									/>
 									<img
 										src="assets/images/icons/star-fill.png"
-										alt="Star Icon"
+										alt=""
 										class="testimonial__rating-icon"
+										aria-hidden="true"
 									/>
 								</div>
 
@@ -539,7 +676,7 @@
 								<img
 									class="testimonial__avatar"
 									src="assets/images/avatars/testimonial-avatars/1.jpg"
-									alt="Emily Thompson"
+									alt="Portrait of Emily Thompson"
 								/>
 								<div class="testimonial__author">
 									<h4 class="testimonial__author-name">
@@ -552,39 +689,52 @@
 							</div>
 						</article>
 
-						<article class="testimonial">
+						<article
+							class="testimonial"
+							role="listitem"
+							aria-label="Testimonial from Jonathan Moore, Software Engineer, rated 4 out of 5 stars"
+						>
 							<!-- Card header -->
 							<div class="testimonial__header">
-								<!-- ratings -->
-								<div class="testimonial__ratings-wrapper">
+								<!-- Ratings -->
+								<div
+									class="testimonial__ratings-wrapper"
+									role="img"
+									aria-label="4 out of 5 stars"
+								>
 									<img
 										src="assets/images/icons/star-fill.png"
-										alt="Star Icon"
+										alt=""
 										class="testimonial__rating-icon"
+										aria-hidden="true"
 									/>
 									<img
 										src="assets/images/icons/star-fill.png"
-										alt="Star Icon"
+										alt=""
 										class="testimonial__rating-icon"
+										aria-hidden="true"
 									/>
 									<img
 										src="assets/images/icons/star-fill.png"
-										alt="Star Icon"
+										alt=""
 										class="testimonial__rating-icon"
+										aria-hidden="true"
 									/>
 									<img
 										src="assets/images/icons/star-fill.png"
-										alt="Star Icon"
+										alt=""
 										class="testimonial__rating-icon"
+										aria-hidden="true"
 									/>
 									<img
 										src="assets/images/icons/star-outline.png"
-										alt="Star Icon"
+										alt=""
 										class="testimonial__rating-icon"
+										aria-hidden="true"
 									/>
 								</div>
 
-								<!-- card text content -->
+								<!-- Card text content -->
 								<p class="testimonial__text">
 									The smart organization of my notes is
 									impressive. I used to waste time searching
@@ -598,7 +748,7 @@
 								<img
 									class="testimonial__avatar"
 									src="assets/images/avatars/testimonial-avatars/4.jpg"
-									alt="Jonathan Moore"
+									alt="Portrait of Jonathan Moore"
 								/>
 								<div class="testimonial__author">
 									<h4 class="testimonial__author-name">
@@ -612,39 +762,52 @@
 						</article>
 
 						<!-- Testimonial (Col 2) -->
-						<article class="testimonial">
+						<article
+							class="testimonial"
+							role="listitem"
+							aria-label="Testimonial from Michael Carter, Product Designer, rated 4 out of 5 stars"
+						>
 							<!-- Card header -->
 							<div class="testimonial__header">
-								<!-- ratings -->
-								<div class="testimonial__ratings-wrapper">
+								<!-- Ratings -->
+								<div
+									class="testimonial__ratings-wrapper"
+									role="img"
+									aria-label="4 out of 5 stars"
+								>
 									<img
 										src="assets/images/icons/star-fill.png"
-										alt="Star Icon"
+										alt=""
 										class="testimonial__rating-icon"
+										aria-hidden="true"
 									/>
 									<img
 										src="assets/images/icons/star-fill.png"
-										alt="Star Icon"
+										alt=""
 										class="testimonial__rating-icon"
+										aria-hidden="true"
 									/>
 									<img
 										src="assets/images/icons/star-fill.png"
-										alt="Star Icon"
+										alt=""
 										class="testimonial__rating-icon"
+										aria-hidden="true"
 									/>
 									<img
 										src="assets/images/icons/star-fill.png"
-										alt="Star Icon"
+										alt=""
 										class="testimonial__rating-icon"
+										aria-hidden="true"
 									/>
 									<img
 										src="assets/images/icons/star-outline.png"
-										alt="Star Icon"
+										alt=""
 										class="testimonial__rating-icon"
+										aria-hidden="true"
 									/>
 								</div>
 
-								<!-- card text content -->
+								<!-- Card text content -->
 								<p class="testimonial__text">
 									As a designer, I need a tool that helps me
 									keep track of brainstorming sessions and
@@ -660,7 +823,7 @@
 								<img
 									class="testimonial__avatar"
 									src="assets/images/avatars/testimonial-avatars/3.jpg"
-									alt="Michael Carter"
+									alt="Portrait of Michael Carter"
 								/>
 								<div class="testimonial__author">
 									<h4 class="testimonial__author-name">
@@ -673,39 +836,52 @@
 							</div>
 						</article>
 
-						<article class="testimonial">
+						<article
+							class="testimonial"
+							role="listitem"
+							aria-label="Testimonial from Rachel Foster, Project Manager, rated 5 out of 5 stars"
+						>
 							<!-- Card header -->
 							<div class="testimonial__header">
-								<!-- ratings -->
-								<div class="testimonial__ratings-wrapper">
+								<!-- Ratings -->
+								<div
+									class="testimonial__ratings-wrapper"
+									role="img"
+									aria-label="5 out of 5 stars"
+								>
 									<img
 										src="assets/images/icons/star-fill.png"
-										alt="Star Icon"
+										alt=""
 										class="testimonial__rating-icon"
+										aria-hidden="true"
 									/>
 									<img
 										src="assets/images/icons/star-fill.png"
-										alt="Star Icon"
+										alt=""
 										class="testimonial__rating-icon"
+										aria-hidden="true"
 									/>
 									<img
 										src="assets/images/icons/star-fill.png"
-										alt="Star Icon"
+										alt=""
 										class="testimonial__rating-icon"
+										aria-hidden="true"
 									/>
 									<img
 										src="assets/images/icons/star-fill.png"
-										alt="Star Icon"
+										alt=""
 										class="testimonial__rating-icon"
+										aria-hidden="true"
 									/>
 									<img
 										src="assets/images/icons/star-fill.png"
-										alt="Star Icon"
+										alt=""
 										class="testimonial__rating-icon"
+										aria-hidden="true"
 									/>
 								</div>
 
-								<!-- card text content -->
+								<!-- Card text content -->
 								<p class="testimonial__text">
 									NoteFlow has made managing multiple projects
 									so much easier. I can quickly access and
@@ -720,7 +896,7 @@
 								<img
 									class="testimonial__avatar"
 									src="assets/images/avatars/testimonial-avatars/5.jpg"
-									alt="Rachel Foster"
+									alt="Portrait of Rachel Foster"
 								/>
 								<div class="testimonial__author">
 									<h4 class="testimonial__author-name">
@@ -734,35 +910,48 @@
 						</article>
 
 						<!-- Testimonial (Col 3) -->
-						<article class="testimonial">
+						<article
+							class="testimonial"
+							role="listitem"
+							aria-label="Testimonial from Sarah Lee, Business Analyst, rated 5 out of 5 stars"
+						>
 							<!-- Card header -->
 							<div class="testimonial__header">
 								<!-- ratings -->
-								<div class="testimonial__ratings-wrapper">
+								<div
+									class="testimonial__ratings-wrapper"
+									role="img"
+									aria-label="5 out of 5 stars"
+								>
 									<img
 										src="assets/images/icons/star-fill.png"
-										alt="Star Icon"
+										alt=""
 										class="testimonial__rating-icon"
+										aria-hidden="true"
 									/>
 									<img
 										src="assets/images/icons/star-fill.png"
-										alt="Star Icon"
+										alt=""
 										class="testimonial__rating-icon"
+										aria-hidden="true"
 									/>
 									<img
 										src="assets/images/icons/star-fill.png"
-										alt="Star Icon"
+										alt=""
 										class="testimonial__rating-icon"
+										aria-hidden="true"
 									/>
 									<img
 										src="assets/images/icons/star-fill.png"
-										alt="Star Icon"
+										alt=""
 										class="testimonial__rating-icon"
+										aria-hidden="true"
 									/>
 									<img
 										src="assets/images/icons/star-fill.png"
-										alt="Star Icon"
+										alt=""
 										class="testimonial__rating-icon"
+										aria-hidden="true"
 									/>
 								</div>
 
@@ -781,7 +970,7 @@
 								<img
 									class="testimonial__avatar"
 									src="assets/images/avatars/testimonial-avatars/2.jpg"
-									alt="Sarah Lee"
+									alt="Portrait of Sarah Lee"
 								/>
 								<div class="testimonial__author">
 									<h4 class="testimonial__author-name">
@@ -794,35 +983,48 @@
 							</div>
 						</article>
 
-						<article class="testimonial">
+						<article
+							class="testimonial"
+							role="listitem"
+							aria-label="Testimonial from Olivia Bennett, Entrepreneur, rated 4 out of 5 stars"
+						>
 							<!-- Card header -->
 							<div class="testimonial__header">
 								<!-- ratings -->
-								<div class="testimonial__ratings-wrapper">
+								<div
+									class="testimonial__ratings-wrapper"
+									role="img"
+									aria-label="4 out of 5 stars"
+								>
 									<img
 										src="assets/images/icons/star-fill.png"
-										alt="Star Icon"
+										alt=""
 										class="testimonial__rating-icon"
+										aria-hidden="true"
 									/>
 									<img
 										src="assets/images/icons/star-fill.png"
-										alt="Star Icon"
+										alt=""
 										class="testimonial__rating-icon"
+										aria-hidden="true"
 									/>
 									<img
 										src="assets/images/icons/star-fill.png"
-										alt="Star Icon"
+										alt=""
 										class="testimonial__rating-icon"
+										aria-hidden="true"
 									/>
 									<img
 										src="assets/images/icons/star-fill.png"
-										alt="Star Icon"
+										alt=""
 										class="testimonial__rating-icon"
+										aria-hidden="true"
 									/>
 									<img
 										src="assets/images/icons/star-outline.png"
-										alt="Star Icon"
+										alt=""
 										class="testimonial__rating-icon"
+										aria-hidden="true"
 									/>
 								</div>
 
@@ -840,7 +1042,7 @@
 								<img
 									class="testimonial__avatar"
 									src="assets/images/avatars/testimonial-avatars/6.jpg"
-									alt="Olivia Bennett"
+									alt="Portrait of Olivia Bennett"
 								/>
 								<div class="testimonial__author">
 									<h4 class="testimonial__author-name">
@@ -857,12 +1059,17 @@
 					<!-- More Testimonials -->
 					<button
 						class="button button--secondary button--lg testimonials__show-more"
+						type="button"
+						aria-label="Show more testimonials"
+						aria-expanded="false"
+						aria-controls="more-testimonials"
 					>
 						Show More
 						<img
 							src="assets/images/icons/Arrow down.png"
-							alt="Arrow Down Icon"
+							alt=""
 							class="testimonials__arrow-icon"
+							aria-hidden="true"
 						/>
 					</button>
 				</div>
@@ -870,10 +1077,14 @@
 		</main>
 
 		<!-- Footer section -->
-		<footer class="footer">
+		<footer class="footer" role="contentinfo">
 			<div class="footer__container">
 				<!-- Footer logo sub-section -->
-				<a href="/" class="footer__logo-link">
+				<a
+					href="/"
+					class="footer__logo-link"
+					aria-label="Go to NoteFlow homepage"
+				>
 					<img
 						src="assets/images/Logo.png"
 						alt="NoteFlow Logo"
@@ -882,67 +1093,156 @@
 				</a>
 
 				<!-- Footer navigation sub-section -->
-				<div class="footer__navigation">
+				<div
+					class="footer__navigation"
+					role="navigation"
+					aria-label="Footer Navigation"
+				>
 					<div class="footer__navigation-wrapper">
-						<h5 class="footer__navigation-title">Home</h5>
-						<div class="footer__navigation-links">
-							<a href="#" class="footer__navigation-link">FAQ</a>
-							<a href="#" class="footer__navigation-link"
+						<h5 class="footer__navigation-title" id="footer-home">
+							Home
+						</h5>
+						<div
+							class="footer__navigation-links"
+							role="list"
+							aria-labelledby="footer-home"
+						>
+							<a
+								href="#"
+								class="footer__navigation-link"
+								role="listitem"
+								>FAQ</a
+							>
+							<a
+								href="#"
+								class="footer__navigation-link"
+								role="listitem"
 								>Features</a
 							>
-							<a href="#" class="footer__navigation-link"
+							<a
+								href="#"
+								class="footer__navigation-link"
+								role="listitem"
 								>Companies</a
 							>
-							<a href="#" class="footer__navigation-link"
+							<a
+								href="#"
+								class="footer__navigation-link"
+								role="listitem"
 								>Testimonials</a
 							>
 						</div>
 					</div>
+
 					<div class="footer__navigation-wrapper">
-						<h5 class="footer__navigation-title">Pricing</h5>
-						<div class="footer__navigation-links">
-							<a href="#" class="footer__navigation-link"
+						<h5
+							class="footer__navigation-title"
+							id="footer-pricing"
+						>
+							Pricing
+						</h5>
+						<div
+							class="footer__navigation-links"
+							role="list"
+							aria-labelledby="footer-pricing"
+						>
+							<a
+								href="#"
+								class="footer__navigation-link"
+								role="listitem"
 								>Plans</a
 							>
-							<a href="#" class="footer__navigation-link"
+							<a
+								href="#"
+								class="footer__navigation-link"
+								role="listitem"
 								>Billing</a
 							>
-							<a href="#" class="footer__navigation-link"
+							<a
+								href="#"
+								class="footer__navigation-link"
+								role="listitem"
 								>Free Trial</a
 							>
-							<a href="#" class="footer__navigation-link"
+							<a
+								href="#"
+								class="footer__navigation-link"
+								role="listitem"
 								>Refunds</a
 							>
 						</div>
 					</div>
+
 					<div class="footer__navigation-wrapper">
-						<h5 class="footer__navigation-title">About</h5>
-						<div class="footer__navigation-links">
-							<a href="#" class="footer__navigation-link"
+						<h5 class="footer__navigation-title" id="footer-about">
+							About
+						</h5>
+						<div
+							class="footer__navigation-links"
+							role="list"
+							aria-labelledby="footer-about"
+						>
+							<a
+								href="#"
+								class="footer__navigation-link"
+								role="listitem"
 								>Careers</a
 							>
-							<a href="#" class="footer__navigation-link"
+							<a
+								href="#"
+								class="footer__navigation-link"
+								role="listitem"
 								>Our Story</a
 							>
-							<a href="#" class="footer__navigation-link"
+							<a
+								href="#"
+								class="footer__navigation-link"
+								role="listitem"
 								>Contact</a
 							>
-							<a href="#" class="footer__navigation-link"
+							<a
+								href="#"
+								class="footer__navigation-link"
+								role="listitem"
 								>Policy</a
 							>
 						</div>
 					</div>
+
 					<div class="footer__navigation-wrapper">
-						<h5 class="footer__navigation-title">Community</h5>
-						<div class="footer__navigation-links">
-							<a href="#" class="footer__navigation-link"
+						<h5
+							class="footer__navigation-title"
+							id="footer-community"
+						>
+							Community
+						</h5>
+						<div
+							class="footer__navigation-links"
+							role="list"
+							aria-labelledby="footer-community"
+						>
+							<a
+								href="#"
+								class="footer__navigation-link"
+								role="listitem"
 								>Forum</a
 							>
-							<a href="#" class="footer__navigation-link"
+							<a
+								href="#"
+								class="footer__navigation-link"
+								role="listitem"
 								>Stories</a
 							>
-							<a href="#" class="footer__navigation-link">Blog</a>
-							<a href="#" class="footer__navigation-link"
+							<a
+								href="#"
+								class="footer__navigation-link"
+								role="listitem"
+								>Blog</a
+							>
+							<a
+								href="#"
+								class="footer__navigation-link"
+								role="listitem"
 								>Support</a
 							>
 						</div>

@@ -59,9 +59,9 @@
 
 	// Icon element
 	&__icon {
-		@include inline-flex(row, center, center);
 		width: 1em;
 		height: 1em;
+		@include inline-flex(row, center, center);
 
 		&--left {
 			margin-right: 0.25rem;

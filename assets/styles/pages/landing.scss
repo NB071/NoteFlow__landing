@@ -103,8 +103,8 @@
 	}
 
 	&__text {
-		@include typography(text-xl);
 		color: $primary-100;
+		@include typography(text-xl);
 	}
 
 	&__count {
@@ -119,9 +119,9 @@
 
 .companies {
 	width: 100%;
-	@include gradient-bg(to bottom, $primary-1300, $primary-1500);
 	padding: 2rem 1rem;
 	margin-bottom: 10rem;
+	@include gradient-bg(to bottom, $primary-1300, $primary-1500);
 
 	&__container {
 		@extend %container;
@@ -590,8 +590,8 @@
 	}
 
 	&__designation {
-		@include typography(text-sm);
 		color: $primary-75;
+		@include typography(text-sm);
 
 		// breakpoints
 		@include laptop {
