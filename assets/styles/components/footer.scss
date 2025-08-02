@@ -82,4 +82,16 @@
 			)
 		);
 	}
+
+	&__copyright {
+		text-align: center;
+		margin-top: 5rem;
+		color: $primary-50;
+		@include typography(text-xs);
+
+		// breakpoints
+		@include laptop {
+			@include typography(text-base);
+		}
+	}
 }
