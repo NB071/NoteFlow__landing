@@ -2,6 +2,7 @@
 @use "../partials/_colors" as *;
 @use "../partials/_responsive" as *;
 @use "../partials/_global" as *;
+@use "../partials/mixins" as *;
 
 .header {
 	height: 4rem;
@@ -21,14 +22,13 @@
 	}
 
 	&__logo {
-		transition: all 0.3s ease-in-out;
-
 		// States
-		&:hover,
-		&:focus {
-			transform: scale(1.08);
-			opacity: 0.8;
-		}
+		@include hover-effect(
+			(
+				transform: scale(1.05),
+				filter: opacity(0.8),
+			)
+		);
 	}
 
 	&__navigation {
@@ -59,12 +59,13 @@
 	&__link {
 		color: $primary-50;
 		text-decoration: none;
-		transition: color 0.3s ease-in-out;
 
 		// States
-		&:hover {
-			color: $primary-300;
-		}
+		@include hover-effect(
+			(
+				color: $primary-300,
+			)
+		);
 	}
 
 	&__buttons {
@@ -80,12 +81,14 @@
 	&__hamburger-menu {
 		display: block;
 		cursor: pointer;
-		transition: all 0.3s ease-in-out;
 
 		// States
-		&:active {
-			transform: scale(0.95);
-		}
+		@include hover-effect(
+			(
+				transform: scale(0.95),
+				filter: opacity(0.8),
+			)
+		);
 
 		// breakpoints
 		@include laptop {

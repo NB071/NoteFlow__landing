@@ -51,12 +51,8 @@
 		}
 	}
 	&__title {
-		@include typography(text-3xl);
 		color: $primary-50;
-		// breakpoints
-		@include laptop {
-			@include typography(text-6xl);
-		}
+		@include responsive-typography(text-6xl, text-3xl);
 	}
 
 	&__subtitle {
@@ -94,9 +90,6 @@
 		height: 2.75rem;
 		border-radius: 50%;
 		border: 2px solid $primary-100;
-		background-size: cover;
-		background-position: center;
-		transition: all 0.4s ease-in-out;
 		object-fit: cover;
 
 		// Selectors
@@ -105,10 +98,15 @@
 		}
 
 		// States
+		@include hover-effect(
+			(
+				transform: scale(1.2),
+				bg: $primary-1300,
+				filter: grayscale(0.5),
+			)
+		);
+
 		&:hover {
-			transform: scale(1.2);
-			box-shadow: 0 0 25px $primary-1300;
-			filter: grayscale(0.5);
 			&:first-child {
 				margin-right: 1.75rem;
 			}
@@ -202,11 +200,6 @@
 		align-items: center;
 		justify-content: center;
 		text-decoration: none;
-
-		// States
-		&:hover .companies__logo {
-			transform: scale(1.05);
-		}
 	}
 
 	&__logo {
@@ -214,13 +207,14 @@
 		max-width: 10rem;
 		height: auto;
 		object-fit: contain;
-		transition: transform 0.3s ease;
 
 		// States
-		&:hover {
-			transform: scale(1.1);
-			filter: brightness(1.2);
-		}
+		@include hover-effect(
+			(
+				transform: scale(1.05),
+				filter: brightness(1.2),
+			)
+		);
 	}
 }
 
@@ -310,13 +304,14 @@
 
 	&__image {
 		width: 50%;
-		transition: all 0.3s ease-in-out;
 
 		// States
-		&:hover {
-			transform: scale(1.05) translateY(-10px);
-			filter: grayscale(0.2);
-		}
+		@include hover-effect(
+			(
+				transform: scale(1.05) translateY(-10px),
+				filter: grayscale(0.5),
+			)
+		);
 
 		// breakpoints
 		@include laptop {
@@ -395,12 +390,13 @@
 
 	&__link {
 		color: $primary-100;
-		transition: all 0.3s ease-in-out;
 
 		// States
-		&:hover {
-			color: $primary-500;
-		}
+		@include hover-effect(
+			(
+				color: $primary-500,
+			)
+		);
 	}
 
 	&__filter-buttons {
@@ -435,16 +431,16 @@
 		cursor: pointer;
 		background-color: transparent;
 		border-radius: 1rem;
-
 		margin-bottom: 1rem;
-		transition: all 0.3s ease-in-out;
 		padding: 0.5rem 0.5rem;
 
 		// States
-		&:hover {
-			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-			background-color: rgba(255, 255, 255, 0.1);
-		}
+		@include hover-effect(
+			(
+				shadow: rgba(255, 255, 255, 0.02),
+				bg: rgba(255, 255, 255, 0.05),
+			)
+		);
 
 		// breakpoints
 		@include tablet {
@@ -575,12 +571,13 @@
 	padding: 2.5rem 2rem;
 	background-color: $primary-1300;
 	border-radius: 1rem;
-	transition: all 0.3s ease-in-out;
 
 	// States
-	&:hover {
-		background-color: $primary-1200;
-	}
+	@include hover-effect(
+		(
+			bg: $primary-1200,
+		)
+	);
 
 	&__ratings-wrapper {
 		display: flex;
@@ -592,12 +589,13 @@
 	&__rating-icon {
 		width: 1.5rem;
 		height: 1.5rem;
-		transition: all 0.3s ease-in-out;
 
 		// States
-		&:hover {
-			filter: brightness(1.4);
-		}
+		@include hover-effect(
+			(
+				filter: brightness(1.4),
+			)
+		);
 	}
 
 	&__footer {
@@ -623,13 +621,15 @@
 		height: 4.5rem;
 		border-radius: 50%;
 		object-fit: cover;
-		transition: all 0.3s ease-in-out;
 
 		// States
-		&:hover {
-			transform: scale(1.05);
-			box-shadow: 0 0 25px $primary-1300;
-		}
+		@include hover-effect(
+			(
+				transform: scale(1.05),
+				filter: brightness(1.2),
+				shadow: $primary-1300,
+			)
+		);
 	}
 
 	&__author {

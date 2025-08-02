@@ -27,14 +27,15 @@
 	}
 
 	&__logo-link {
-		transition: all 0.3s ease-in-out;
 		margin-bottom: auto;
 
 		// States
-		&:hover {
-			opacity: 0.8;
-			transform: scale(1.05);
-		}
+		@include hover-effect(
+			(
+				transform: scale(1.05),
+				filter: opacity(0.8),
+			)
+		);
 	}
 
 	&__navigation {
@@ -77,12 +78,14 @@
 	&__navigation-link {
 		color: $primary-100;
 		text-decoration: none;
-		transition: color 0.3s ease-in-out;
+
 		@include responsive-typography(text-base, text-lg);
 
 		// States
-		&:hover {
-			color: $primary-250;
-		}
+		@include hover-effect(
+			(
+				color: $primary-250,
+			)
+		);
 	}
 }

@@ -1,5 +1,45 @@
+@use "sass:map";
+
 // This file contains general-purpose mixins
 
 @mixin gradient-bg($direction, $start, $end) {
 	background: linear-gradient($direction, $start 0%, $end 100%);
+}
+
+// Mixin for custom hover effects
+@mixin hover-effect($options: ()) {
+	$shadow: map.get($options, shadow);
+	$filter: map.get($options, filter);
+	$transform: map.get($options, transform);
+	$bg: map.get($options, bg);
+	$color: map.get($options, color);
+	$bdr-color: map.get($options, bdr-color);
+	$transition: if(
+		map.has-key($options, transition),
+		map.get($options, transition),
+		0.3s
+	);
+
+	transition: all $transition ease-in-out;
+
+	&:hover {
+		@if $transform {
+			transform: $transform;
+		}
+		@if $shadow {
+			box-shadow: 0 0 25px $shadow;
+		}
+		@if $filter {
+			filter: $filter;
+		}
+		@if $bg {
+			background-color: $bg;
+		}
+		@if $color {
+			color: $color;
+		}
+		@if $bdr-color {
+			border-color: $bdr-color;
+		}
+	}
 }

@@ -2,6 +2,7 @@
 @use "../partials/_colors" as *;
 @use "../partials/_responsive" as *;
 @use "../partials/placeholders" as *;
+@use "../partials/mixins" as *;
 
 // ==============================
 // MIXINS
@@ -13,10 +14,15 @@
 	background-color: $primary-500;
 	box-shadow: 0 0 25px 0 rgba(68, 229, 231, 0.3);
 
-	&:hover {
-		background-color: $primary-600;
-		box-shadow: 0 0 15px 0 rgba(68, 229, 231, 0.2);
-	}
+	// States
+	@include hover-effect(
+		(
+			transform: scale(0.97),
+			shadow: rgba(68, 229, 231, 0.2),
+			bg: $primary-600,
+			color: $primary-1200,
+		)
+	);
 }
 
 // Secondary variant
@@ -25,11 +31,15 @@
 	background-color: transparent;
 	border: 0.15rem solid $primary-50;
 
-	&:hover {
-		border-color: $primary-500;
-		background-color: $primary-500;
-		color: $primary-1300;
-	}
+	// States
+	@include hover-effect(
+		(
+			transform: scale(0.97),
+			bdr-color: $primary-500,
+			bg: $primary-500,
+			color: $primary-1300,
+		)
+	);
 }
 
 // ==============================

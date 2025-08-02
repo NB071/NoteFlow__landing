@@ -4,6 +4,7 @@
 @use "../partials/colors" as *;
 @use "../partials/responsive" as *;
 @use "../partials/placeholders" as *;
+@use "../partials/mixins" as *;
 
 // ==============================
 // CONFIG
@@ -38,12 +39,30 @@ $button-sizes: (
 
 // Map button sizes to font variants
 $button-font-map: (
-	xs: text-sm,
-	sm: text-base,
-	base: text-base,
-	lg: text-lg,
-	xl: text-xl,
-	"2xl": text-2xl,
+	xs: (
+		mobile: text-sm,
+		desk: text-base,
+	),
+	sm: (
+		mobile: text-base,
+		desk: text-lg,
+	),
+	base: (
+		mobile: text-base,
+		desk: text-lg,
+	),
+	lg: (
+		mobile: text-lg,
+		desk: text-xl,
+	),
+	xl: (
+		mobile: text-xl,
+		desk: text-2xl,
+	),
+	"2xl": (
+		mobile: text-2xl,
+		desk: text-2xl,
+	),
 );
 
 $button-icon-positions: (left, right);
@@ -53,15 +72,21 @@ $button-icon-positions: (left, right);
 // ==============================
 
 // Size mixin
-@mixin button-size($size, $font-variant) {
+@mixin button-size($size) {
 	$padding: map.get($button-sizes, $size);
+	$font-map: map.get($button-font-map, $size);
 
-	@if $padding == null {
+	@if $padding == null or $font-map == null {
 		@error "Unknown button size `#{$size}`. Available: #{map-keys($button-sizes)}";
 	}
 
 	padding: list.nth($padding, 1) list.nth($padding, 2);
-	@include typography($font-variant);
+
+	// Extract mobile and desktop fonts
+	$mobile-font: map.get($font-map, mobile);
+	$desk-font: map.get($font-map, desk);
+
+	@include responsive-typography($mobile-font, $desk-font);
 }
 
 // Primary button style
@@ -70,13 +95,16 @@ $button-icon-positions: (left, right);
 	color: $primary-1300;
 	box-shadow: 0 0 25px 0 rgba(68, 229, 231, 0.3);
 
-	&:hover,
-	&:focus {
-		background-color: $primary-600;
-		color: $primary-1200;
-		box-shadow: 0 0 15px 0 rgba(68, 229, 231, 0.1);
-		transform: scale(0.97);
-	}
+	// States
+	@include hover-effect(
+		(
+			transform: scale(0.97),
+			shadow: rgba(68, 229, 231, 0.1),
+			filter: opacity(0.8),
+			bg: $primary-600,
+			color: $primary-1200,
+		)
+	);
 
 	&:active {
 		transform: scale(0.94);
@@ -89,13 +117,15 @@ $button-icon-positions: (left, right);
 	color: $primary-50;
 	border: 0.2rem solid $primary-50;
 
-	&:hover,
-	&:focus {
-		border-color: $primary-500;
-		background-color: $primary-500;
-		color: $primary-1300;
-		transform: scale(0.97);
-	}
+	// States
+	@include hover-effect(
+		(
+			transform: scale(0.97),
+			bdr-color: $primary-500,
+			bg: $primary-500,
+			color: $primary-1300,
+		)
+	);
 
 	&:active {
 		transform: scale(0.94);
@@ -115,8 +145,7 @@ $button-icon-positions: (left, right);
 	// ------------------------------
 	@each $size, $padding in $button-sizes {
 		&--#{$size} {
-			$font-variant: map.get($button-font-map, $size);
-			@include button-size($size, $font-variant);
+			@include button-size($size);
 		}
 	}
 
