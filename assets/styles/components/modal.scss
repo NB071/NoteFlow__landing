@@ -1,0 +1,135 @@
+@use "../partials/colors" as *;
+@use "../partials/responsive" as *;
+@use "../partials/typography" as *;
+@use "../partials/mixins" as *;
+
+.modal {
+	position: fixed;
+	inset: 0;
+	justify-content: center;
+	align-items: center;
+	z-index: 1000;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.3s ease, visibility 0.3s ease;
+	@include flex(column, center, center);
+
+	&__overlay {
+		position: absolute;
+		inset: 0;
+		background-color: #1b5c5c20;
+		backdrop-filter: blur(20px);
+		opacity: 0;
+		transition: opacity 0.3s ease;
+	}
+
+	&__content {
+		position: relative;
+		display: flex;
+		z-index: 1;
+		width: 90%;
+		height: auto;
+		max-width: 900px;
+		background-color: $primary-1400;
+		border-radius: 1rem;
+		transform: scale(0.8);
+		overflow: hidden;
+		opacity: 0;
+		transition: opacity 0.3s ease, transform 0.3s ease;
+
+		@include laptop {
+			width: 50%;
+			height: 46%;
+		}
+	}
+
+	&__wrapper {
+		width: 100%;
+		height: 100%;
+		@include flex(row, stretch, stretch);
+	}
+
+	&__info {
+		display: none;
+
+		@include laptop {
+			flex: 1;
+			height: 100%;
+			background-color: $primary-1300;
+			padding: 0rem 2.5rem;
+			text-align: center;
+			@include flex(column, center, center, wrap, 1rem);
+		}
+	}
+
+	&__title {
+		@include laptop {
+			font-size: 2.25rem;
+			line-height: 3rem;
+			font-weight: $font-weight-bold;
+			letter-spacing: $letter-spacing-tight-4xl;
+		}
+	}
+
+	&__description {
+		@include laptop {
+			@include typography(text-lg);
+		}
+	}
+
+	&__close-wrapper {
+		@include flex(row, center, end);
+	}
+
+	&__close-button {
+		border: 2px solid $primary-50;
+		padding: 1rem;
+		border-radius: 0.875rem;
+		@include inline-flex(row, center, center);
+		@include hover-effect(
+			(
+				transform: scale(0.95),
+			)
+		);
+	}
+
+	&__terms-wrapper {
+		@include flex(row, center, start, wrap, 1rem);
+	}
+
+	&__terms {
+		@include typography(text-sm);
+	}
+
+	&__form-wrapper {
+		height: 100%;
+		flex: 1;
+		padding: 2rem;
+	}
+
+	&__inputs {
+		margin: 6rem 0rem 2rem 0rem;
+		@include flex(column, center, start, wrap, 1rem);
+
+		@include laptop {
+			margin: 6rem 0rem 6rem 0rem;
+		}
+	}
+
+	&__form-group {
+		width: 100%;
+	}
+
+	&__actions {
+		@include flex(column, center, center, wrap, 1rem);
+	}
+
+	&__submit {
+		width: 100%;
+		padding: 1rem 0;
+	}
+
+	&--show {
+		display: flex;
+	}
+}

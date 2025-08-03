@@ -3,6 +3,7 @@
 @use "typography" as *;
 @use "placeholders" as *;
 @use "reset" as *;
+@use "mixins" as *;
 
 // Selectors
 ::selection {
@@ -27,5 +28,79 @@ body {
 	// breakpoints
 	@include tablet {
 		@include typography(text-lg);
+	}
+}
+
+label {
+	display: block;
+	font-size: 1.125rem;
+	line-height: 3rem;
+	font-weight: $font-weight-bold;
+	letter-spacing: $letter-spacing-tight-2xl;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="url"] {
+	font-family: $font-family-primary;
+	border: none;
+	width: 100%;
+	border-radius: 50rem;
+	padding: 1rem 2rem;
+	background-color: $primary-75;
+	color: $primary-1400;
+	@include typography(text-base);
+
+	// Selectors
+	&::placeholder {
+		color: #06121230;
+	}
+
+	&:focus {
+		outline: none;
+	}
+}
+
+input[type="checkbox"] {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+
+	font: inherit;
+	color: $primary-50;
+	width: 1.5rem;
+	height: 1.5rem;
+	border: 0.2rem solid $primary-50;
+	border-radius: 0.375rem;
+	cursor: pointer;
+	transition: border-color 0.2s ease;
+	@include flex(row, center, center);
+
+	// Selectors
+	&::before {
+		content: "";
+		width: 0.35rem;
+		height: 0.7rem;
+		border-right: 0.2rem solid $primary-50;
+		border-bottom: 0.2rem solid $primary-50;
+		transform: rotate(45deg) scale(0);
+		transform-origin: center;
+		transition: transform 0.2s ease-in-out;
+	}
+
+	&:checked {
+		border-color: $primary-50;
+
+		&::before {
+			transform: rotate(45deg) scale(1);
+		}
+	}
+
+	&:hover {
+		border-color: $primary-100;
 	}
 }
