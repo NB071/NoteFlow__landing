@@ -61,6 +61,8 @@ const createGetStartedModal = () => {
 
 	modal[0].offsetHeight;
 
+	modal.attr("aria-hidden", "false");
+
 	modal.css({ visibility: "visible", opacity: 1 });
 	modal.find(".modal__overlay").css({ opacity: 1 });
 	modal.find(".modal__content").css({ opacity: 1, transform: "scale(1)" });
@@ -116,13 +118,11 @@ const createLoginModal = () => {
 
 	modal[0].offsetHeight;
 
-	requestAnimationFrame(() => {
-		modal.css({ visibility: "visible", opacity: 1 });
-		modal.find(".modal__overlay").css({ opacity: 1 });
-		modal
-			.find(".modal__content")
-			.css({ opacity: 1, transform: "scale(1)" });
-	});
+	modal.attr("aria-hidden", "false");
+
+	modal.css({ visibility: "visible", opacity: 1 });
+	modal.find(".modal__overlay").css({ opacity: 1 });
+	modal.find(".modal__content").css({ opacity: 1, transform: "scale(1)" });
 
 	return modal;
 };
