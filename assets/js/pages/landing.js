@@ -2,8 +2,6 @@
 // Modal Functionalities
 // =============================
 
-const getStartedModal = $("#get-started-modal");
-
 const closeModal = ($modal) => {
 	$modal.css({ opacity: 0 });
 	$("body").css("overflow", "");
