@@ -5,7 +5,9 @@
 @use "reset" as *;
 @use "mixins" as *;
 
-// Selectors
+//  ==== Global styles ====
+
+// Selection styles
 ::selection {
 	background-color: $primary-1300;
 	color: $primary-50;
@@ -15,7 +17,20 @@
 	color: $primary-50;
 }
 
-// Top-level styles
+// Scrollbar styles
+::-webkit-scrollbar {
+	width: 0.5rem;
+	background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+	background-color: $primary-50;
+	border-radius: 0.25rem;
+}
+::-webkit-scrollbar-track {
+	background-color: transparent;
+}
+
+// Body styles
 body {
 	// styles
 	width: 100%;
@@ -31,6 +46,7 @@ body {
 	}
 }
 
+// label styles
 label {
 	display: block;
 	font-size: 1.125rem;
@@ -39,6 +55,7 @@ label {
 	letter-spacing: $letter-spacing-tight-2xl;
 }
 
+// Input styles
 input[type="text"],
 input[type="email"],
 input[type="password"],
@@ -65,6 +82,7 @@ input[type="url"] {
 	}
 }
 
+// Custom checkbox styles
 input[type="checkbox"] {
 	-webkit-appearance: none;
 	-moz-appearance: none;

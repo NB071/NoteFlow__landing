@@ -58,7 +58,8 @@
 			background-color: $primary-1300;
 			padding: 0rem 2.5rem;
 			text-align: center;
-			@include flex(column, center, center, wrap, 1rem);
+			overflow-y: auto;
+			@include flex(column, center, center, no-wrap, 1rem);
 		}
 	}
 
@@ -83,7 +84,10 @@
 
 	&__close-button {
 		border: 2px solid $primary-50;
-		padding: 1rem;
+		width: 1.5rem;
+		height: 1.5rem;
+		padding: 0.88rem;
+
 		border-radius: 0.875rem;
 		@include inline-flex(row, center, center);
 		@include hover-effect(
@@ -91,6 +95,10 @@
 				transform: scale(0.95),
 			)
 		);
+	}
+
+	&__close-icon {
+		font-size: 1rem;
 	}
 
 	&__terms-wrapper {
@@ -105,6 +113,7 @@
 		height: 100%;
 		flex: 1;
 		padding: 2rem;
+		overflow-y: auto;
 	}
 
 	&__inputs {

@@ -112,7 +112,9 @@ export function createLoginModal() {
           </div>
           <div class="modal__form-wrapper">
             <div class="modal__close-wrapper">
-              <button class="modal__close-button" aria-label="Close modal">✕</button>
+              <button class="modal__close-button" aria-label="Close modal">
+                <i class="ri-close-line modal__close-icon"></i>
+              </button>
             </div>
             <form action="#" method="POST">
               <div class="modal__inputs">
