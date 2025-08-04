@@ -28,6 +28,7 @@
 	text-decoration: none;
 	@include inline-flex(row, center, center, nowrap, 0.5rem);
 
+	// States
 	&:disabled {
 		opacity: 0.6;
 		cursor: not-allowed;
@@ -41,6 +42,7 @@
 	height: 1.25em;
 	@include inline-flex(row, center, center, nowrap);
 
+	// Selectors
 	i {
 		font-size: 1.25rem;
 	}
@@ -56,6 +58,7 @@
 	@include inline-flex(row, center, center, nowrap, 0.25rem);
 	@include typography(text-xs);
 
+	// States
 	@include laptop {
 		@include typography(text-base);
 	}
