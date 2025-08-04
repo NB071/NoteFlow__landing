@@ -2,10 +2,12 @@
 
 <img src="https://nimabargestan.com/wp-content/uploads/2025/08/NetFlow-Landing.png" />
 
+🚀 **Live Demo**: https://cerulean-belekoy-ce7296.netlify.app/
+
 **NoteFlow** – A pixel-perfect, responsive landing page **faithfully implemented from a [Figma design](https://www.figma.com/community/file/1477504952526098298)**.  
 Built with **jQuery** and **SCSS** using a **mobile‑first approach**, following **Separation of Concerns (SoC)** and **accessibility best practices**.  
 
-The page was tested using the **Lighthouse extension** and consistently achieved **95+ scores** across **Performance, Accessibility, Best Practices, and SEO**.
+The page was tested using the **Lighthouse extension** and consistently achieved **+91% scores** across **Performance, Accessibility, Best Practices, and SEO**.
 
 ---
 
