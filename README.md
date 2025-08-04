@@ -29,7 +29,7 @@ The page was tested using the **Lighthouse extension** and consistently achieved
 - **JavaScript (jQuery)** – DOM interactions and dynamic FAQ content  
 - **AOS Library** – Smooth scroll animations
 - **Remix Icons** - Consistent Icons
-- **Lighthouse Auditing** – Verified 95+ scores in all metrics  
+- **Lighthouse Auditing** – Verified +91% scores in all metrics  
 
 ---
 
