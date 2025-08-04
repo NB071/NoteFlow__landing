@@ -158,6 +158,80 @@ export function createLoginModal() {
 }
 
 // ============================
+// Mobile Menu Functionalities
+// ============================
+
+export function createMobileMenu() {
+	const mobileMenu = $(`
+    <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+			<div class="mobile-menu__overlay"></div>
+			<div class="mobile-menu__content">
+				<div class="mobile-menu__close-wrapper">
+					<button
+						class="mobile-menu__close-button"
+						aria-label="Close modal"
+					>
+						<i class="ri-close-line mobile-menu__close-icon"></i>
+					</button>
+				</div>
+				<nav class="mobile-menu__navigation">
+					<ul class="mobile-menu__list">
+						<li
+							class="mobile-menu__item mobile-menu__item--selected"
+						>
+							<a href="#" class="mobile-menu__link">Home</a>
+						</li>
+						<li class="mobile-menu__item">
+							<a href="#" class="mobile-menu__link">Pricing</a>
+						</li>
+						<li class="mobile-menu__item">
+							<a href="#" class="mobile-menu__link">About</a>
+						</li>
+						<li class="mobile-menu__item">
+							<a href="#" class="mobile-menu__link">Community</a>
+						</li>
+					</ul>
+				</nav>
+
+				<div class="mobile-menu__footer">
+					<button
+						class="button button--secondary mobile-menu__button"
+					>
+						Login
+					</button>
+					<button class="button button--primary mobile-menu__button">
+						Get Started
+					</button>
+				</div>
+			</div>
+		</div>
+  `);
+
+	$("body").append(mobileMenu);
+	$("body").css("overflow", "hidden");
+
+	mobileMenu[0].offsetHeight;
+
+	mobileMenu.attr("aria-hidden", "false");
+
+	mobileMenu.css({ visibility: "visible", opacity: 1 });
+	mobileMenu.find(".mobile-menu__overlay").css({ opacity: 1 });
+	mobileMenu
+		.find(".mobile-menu__content")
+		.css({ opacity: 1, transform: "scale(1)" });
+
+	return mobileMenu;
+}
+
+export function closeMobileMenu(mobileMenu) {
+	mobileMenu.css({ opacity: 0 });
+	$("body").css("overflow", "");
+	setTimeout(() => {
+		mobileMenu.css({ visibility: "hidden" }).remove();
+	}, 300);
+}
+
+// ============================
 // FAQ Functionalities
 // ============================
 

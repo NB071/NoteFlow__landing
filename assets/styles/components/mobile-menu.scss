@@ -1,0 +1,98 @@
+@use "../partials/global" as *;
+@use "../partials/typography" as *;
+@use "../partials/colors" as *;
+@use "../partials/responsive" as *;
+@use "../partials/mixins" as *;
+
+.mobile-menu {
+	position: fixed;
+	inset: 0;
+	z-index: 1000;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.3s ease, visibility 0.3s ease;
+	@include flex(column, center, center);
+
+	&__overlay {
+		position: absolute;
+		inset: 0;
+		background-color: #1b5c5c20;
+		backdrop-filter: blur(20px);
+		opacity: 0;
+		transition: opacity 0.3s ease;
+	}
+
+	&__content {
+		position: relative;
+		z-index: 1;
+		width: 90%;
+		height: 95%;
+		max-width: 55rem;
+		padding: 2rem;
+		background-color: $primary-1400;
+		border-radius: 1rem;
+		overflow: hidden;
+		@include flex($direction: column, $wrap: wrap);
+	}
+
+	&__close-wrapper {
+		@include flex(row);
+		margin-bottom: 4rem;
+	}
+
+	&__close-button {
+		border: 2px solid $primary-50;
+		width: 1.5rem;
+		height: 1.5rem;
+		padding: 0.88rem;
+
+		border-radius: 0.875rem;
+		@include inline-flex(row, center, center);
+		@include hover-effect(
+			(
+				transform: scale(0.95),
+			)
+		);
+	}
+
+	&__list {
+		list-style: none;
+		@include flex($direction: column, $wrap: no-wrap, $gap: 1.5rem);
+		@include typography(text-lg);
+	}
+
+	&__item {
+		&--selected {
+			font-weight: $font-weight-semibold;
+		}
+	}
+
+	&__link {
+		width: 100%;
+		color: $primary-50;
+		text-decoration: none;
+
+		// States
+		@include hover-effect(
+			(
+				color: $primary-300,
+			)
+		);
+	}
+
+	&__footer {
+		margin-top: auto;
+		@include flex(column, center, center, wrap, 1rem);
+	}
+
+	&__button {
+		flex: 1;
+		padding: 0.75rem 0rem;
+		width: 100%;
+	}
+
+	// breakpoints
+	@include laptop {
+		display: none;
+	}
+}

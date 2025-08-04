@@ -6,6 +6,8 @@ import {
 	loadFAQSection,
 	fetchFAQ,
 	skipFAQFilter,
+	createMobileMenu,
+	closeMobileMenu,
 } from "./helpers.js";
 
 // =============================
@@ -92,5 +94,28 @@ $(document).ready(function () {
 		// Dynamically load based on clicked filter
 		const section = Globals.FAQ[title.toLowerCase()] || [];
 		loadFAQSection(section);
+	});
+
+	// #########################################################
+	// >> Mobile Menu
+
+	$(".header__hamburger-menu").click(function () {
+		createMobileMenu();
+	});
+
+	// Close Mobile Menu on overlay or close button
+	$(document).on(
+		"click",
+		".mobile-menu__overlay, .mobile-menu__close-button",
+		function () {
+			closeMobileMenu($(this).closest(".mobile-menu"));
+		}
+	);
+
+	// Close on ESC
+	$(document).on("keydown", function (e) {
+		if (e.key === "Escape") {
+			closeMobileMenu($(this));
+		}
 	});
 });
