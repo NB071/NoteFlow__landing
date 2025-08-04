@@ -1,12 +1,26 @@
 @use "sass:map";
 
-// This file contains general-purpose mixins
+// >> This file contains general-purpose mixins <<
 
+/// Creates a linear gradient background.
+///
+/// @param {string} $direction - Direction of the gradient (e.g., to right, 45deg)
+/// @param {color} $start - Starting color
+/// @param {color} $end - Ending color
 @mixin gradient-bg($direction, $start, $end) {
 	background: linear-gradient($direction, $start 0%, $end 100%);
 }
 
-// Mixin for custom hover effects
+/// Adds configurable hover effects such as transform, shadow, color changes, etc.
+///
+/// @param {map} $options - A map of hover options:
+/// - `shadow`: Box shadow color (optional)
+/// - `filter`: CSS filter (optional)
+/// - `transform`: Transform value (optional)
+/// - `bg`: Background color on hover (optional)
+/// - `color`: Text color on hover (optional)
+/// - `bdr-color`: Border color on hover (optional)
+/// - `transition`: Transition duration (optional, defaults to 0.5s)
 @mixin hover-effect($options: ()) {
 	$shadow: map.get($options, shadow);
 	$filter: map.get($options, filter);
@@ -46,7 +60,15 @@
 	}
 }
 
-// Mixins for flexbox layouts
+/// Base mixin for flex and inline-flex layouts.
+/// Provides control over direction, alignment, wrapping, and gap.
+///
+/// @param {string} $display - flex or inline-flex
+/// @param {string|false} $direction - flex-direction (row, column, etc.)
+/// @param {string|false} $align - align-items value
+/// @param {string|false} $justify - justify-content value
+/// @param {string|false} $wrap - flex-wrap value
+/// @param {string|false} $gap - gap between flex children
 @mixin flex-variant(
 	$display,
 	$direction: false,
@@ -83,6 +105,10 @@
 	}
 }
 
+/// Shortcut for a standard `flex` layout.
+/// Uses `flex-variant` internally.
+///
+/// @see flex-variant
 @mixin flex(
 	$direction: false,
 	$align: false,
@@ -100,6 +126,10 @@
 	);
 }
 
+/// Shortcut for an `inline-flex` layout.
+/// Uses `flex-variant` internally.
+///
+/// @see flex-variant
 @mixin inline-flex(
 	$direction: false,
 	$align: false,
