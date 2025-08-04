@@ -4,157 +4,144 @@
 import { Globals } from "./globals.js";
 
 // =============================
+// Utility Functions
+// =============================
+
+/**
+ * Appends an element to the body, disables scrolling, and animates it into view.
+ * @param {jQuery} element - The jQuery element to show.
+ */
+function showElement(element) {
+	$("body").append(element).css("overflow", "hidden");
+
+	// Trigger reflow for animation
+	element[0].offsetHeight;
+
+	// Animate element
+	element
+		.attr("aria-hidden", "false")
+		.css({ visibility: "visible", opacity: 1 });
+	element.find(".modal__overlay, .mobile-menu__overlay").css({ opacity: 1 });
+	element
+		.find(".modal__content, .mobile-menu__content")
+		.css({ opacity: 1, transform: "scale(1)" });
+}
+
+/**
+ * Fades out and removes a modal or menu element, restoring body scroll.
+ * @param {jQuery} element - The jQuery element to close.
+ */
+function closeElement(element) {
+	element.css({ opacity: 0 });
+	$("body").css("overflow", "");
+	setTimeout(() => {
+		element.css({ visibility: "hidden" }).remove();
+	}, 300);
+}
+
+// =============================
+// Modal Functionalities
+// =============================
+
+// =============================
 // Modal Functionalities
 // =============================
 
 /**
- * Closes the specified modal by fading it out and then removing it from the DOM.
- * Also restores the body's overflow property.
- *
- * @param {jQuery} modal - The jQuery object representing the modal to close.
+ * Creates a modal with the given ID and HTML content.
+ * @param {string} id - The modal ID.
+ * @param {string} title - Modal title text.
+ * @param {string} description - Modal description text.
+ * @param {string} formContent - Inner HTML for the modal form.
+ * @returns {jQuery} The created modal.
  */
+function createModal(id, title, description, formContent) {
+	const modal = $(`
+    <div id="${id}" class="modal" aria-hidden="true">
+      <div class="modal__overlay"></div>
+      <div class="modal__content">
+        <div class="modal__wrapper">
+          <div class="modal__info">
+            <h2 class="modal__title">${title}</h2>
+            <p class="modal__description">${description}</p>
+          </div>
+          <div class="modal__form-wrapper">
+            <div class="modal__close-wrapper">
+              <button class="modal__close-button" aria-label="Close modal">
+                <i class="ri-close-line modal__close-icon"></i>
+              </button>
+            </div>
+            ${formContent}
+          </div>
+        </div>
+      </div>
+    </div>
+  `);
+
+	showElement(modal);
+	return modal;
+}
+
 export function closeModal(modal) {
-	modal.css({ opacity: 0 });
-	$("body").css("overflow", "");
-	setTimeout(() => {
-		modal.css({ visibility: "hidden" }).remove();
-	}, 300);
+	closeElement(modal);
 }
 
-/**
- * Creates and displays a "Get Started" modal for user sign-up.
- *
- * The modal includes a form for email and password input, a terms agreement checkbox,
- * and a close button. It appends the modal to the body, disables body scrolling,
- * and animates the modal's appearance.
- *
- * @returns {jQuery} The jQuery object representing the created modal element.
- */
+// Specific modal creators use the generic `createModal`
 export function createGetStartedModal() {
-	const modal = $(`
-    <div id="get-started-modal" class="modal" aria-hidden="true">
-      <div class="modal__overlay"></div>
-      <div class="modal__content">
-        <div class="modal__wrapper">
-          <div class="modal__info">
-            <h2 class="modal__title">Lets Get you Signed Up</h2>
-            <p class="modal__description">
-              No charges, no fees. Get note taking in minutes!
-            </p>
+	return createModal(
+		"get-started-modal",
+		"Lets Get you Signed Up",
+		"No charges, no fees. Get note taking in minutes!",
+		`
+      <form action="#" method="POST">
+        <div class="modal__inputs">
+          <div class="modal__form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="janedone@gmail.com" required />
           </div>
-          <div class="modal__form-wrapper">
-            <div class="modal__close-wrapper">
-              <button class="modal__close-button" aria-label="Close modal">
-                <i class="ri-close-line modal__close-icon"></i>
-              </button>
-            </div>
-            <form action="#" method="POST">
-              <div class="modal__inputs">
-                <div class="modal__form-group">
-                  <label for="email">Email</label>
-                  <input type="email" id="email" name="email" placeholder="janedone@gmail.com" required />
-                </div>
-                <div class="modal__form-group">
-                  <label for="password">Password</label>
-                  <input type="password" id="password" name="password" placeholder="*************" required />
-                </div>
-              </div>
-
-              <div class="modal__actions">
-                <div class="modal__terms-wrapper">
-                  <input type="checkbox" id="terms" name="terms" required />
-                  <label for="terms" class="modal__terms">I agree to all terms</label>
-                </div>
-                <button type="submit" class="button button--primary modal__submit">
-                  Get Started
-                </button>
-              </div>
-            </form>
+          <div class="modal__form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="*************" required />
           </div>
         </div>
-      </div>
-    </div>
-  `);
 
-	$("body").append(modal);
-	$("body").css("overflow", "hidden");
-
-	modal[0].offsetHeight;
-
-	modal.attr("aria-hidden", "false");
-
-	modal.css({ visibility: "visible", opacity: 1 });
-	modal.find(".modal__overlay").css({ opacity: 1 });
-	modal.find(".modal__content").css({ opacity: 1, transform: "scale(1)" });
-
-	return modal;
+        <div class="modal__actions">
+          <div class="modal__terms-wrapper">
+            <input type="checkbox" id="terms" name="terms" required />
+            <label for="terms" class="modal__terms">I agree to all terms</label>
+          </div>
+          <button type="submit" class="button button--primary modal__submit">Get Started</button>
+        </div>
+      </form>
+    `
+	);
 }
 
-/**
- * Creates and displays a login modal dialog on the page.
- *
- * The modal includes fields for email and password, as well as buttons for logging in and creating an account.
- * It also handles accessibility attributes and prevents background scrolling while the modal is open.
- *
- * @returns {jQuery} The jQuery object representing the created modal element.
- */
 export function createLoginModal() {
-	const modal = $(`
-    <div id="login-modal" class="modal" aria-hidden="true">
-      <div class="modal__overlay"></div>
-      <div class="modal__content">
-        <div class="modal__wrapper">
-          <div class="modal__info">
-            <h2 class="modal__title">Welcome Back</h2>
-            <p class="modal__description">
-              Log in to access your notes quickly and securely.
-            </p>
+	return createModal(
+		"login-modal",
+		"Welcome Back",
+		"Log in to access your notes quickly and securely.",
+		`
+      <form action="#" method="POST">
+        <div class="modal__inputs">
+          <div class="modal__form-group">
+            <label for="login-email">Email</label>
+            <input type="email" id="login-email" name="email" placeholder="janedoe@gmail.com" required />
           </div>
-          <div class="modal__form-wrapper">
-            <div class="modal__close-wrapper">
-              <button class="modal__close-button" aria-label="Close modal">
-                <i class="ri-close-line modal__close-icon"></i>
-              </button>
-            </div>
-            <form action="#" method="POST">
-              <div class="modal__inputs">
-                <div class="modal__form-group">
-                  <label for="login-email">Email</label>
-                  <input type="email" id="login-email" name="email" placeholder="janedoe@gmail.com" required />
-                </div>
-                <div class="modal__form-group">
-                  <label for="login-password">Password</label>
-                  <input type="password" id="login-password" name="password" placeholder="*************" required />
-                </div>
-              </div>
-
-              <div class="modal__actions">
-                <button type="submit" class="button button--primary modal__submit">
-                  Log In
-                </button>
-                <button type="button" class="button button--secondary modal__submit js-show-signup">
-                  Create Account
-                </button>
-              </div>
-            </form>
+          <div class="modal__form-group">
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" name="password" placeholder="*************" required />
           </div>
         </div>
-      </div>
-    </div>
-  `);
 
-	$("body").append(modal);
-	$("body").css("overflow", "hidden");
-
-	modal[0].offsetHeight;
-
-	modal.attr("aria-hidden", "false");
-
-	modal.css({ visibility: "visible", opacity: 1 });
-	modal.find(".modal__overlay").css({ opacity: 1 });
-	modal.find(".modal__content").css({ opacity: 1, transform: "scale(1)" });
-
-	return modal;
+        <div class="modal__actions">
+          <button type="submit" class="button button--primary modal__submit">Log In</button>
+          <button type="button" class="button button--secondary modal__submit js-show-signup">Create Account</button>
+        </div>
+      </form>
+    `
+	);
 }
 
 // ============================
@@ -164,71 +151,35 @@ export function createLoginModal() {
 export function createMobileMenu() {
 	const mobileMenu = $(`
     <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
-			<div class="mobile-menu__overlay"></div>
-			<div class="mobile-menu__content">
-				<div class="mobile-menu__close-wrapper">
-					<button
-						class="mobile-menu__close-button"
-						aria-label="Close modal"
-					>
-						<i class="ri-close-line mobile-menu__close-icon"></i>
-					</button>
-				</div>
-				<nav class="mobile-menu__navigation">
-					<ul class="mobile-menu__list">
-						<li
-							class="mobile-menu__item mobile-menu__item--selected"
-						>
-							<a href="#" class="mobile-menu__link">Home</a>
-						</li>
-						<li class="mobile-menu__item">
-							<a href="#" class="mobile-menu__link">Pricing</a>
-						</li>
-						<li class="mobile-menu__item">
-							<a href="#" class="mobile-menu__link">About</a>
-						</li>
-						<li class="mobile-menu__item">
-							<a href="#" class="mobile-menu__link">Community</a>
-						</li>
-					</ul>
-				</nav>
-
-				<div class="mobile-menu__footer">
-					<button
-						class="button button--secondary mobile-menu__button"
-					>
-						Login
-					</button>
-					<button class="button button--primary mobile-menu__button">
-						Get Started
-					</button>
-				</div>
-			</div>
-		</div>
+      <div class="mobile-menu__overlay"></div>
+      <div class="mobile-menu__content">
+        <div class="mobile-menu__close-wrapper">
+          <button class="mobile-menu__close-button" aria-label="Close menu">
+            <i class="ri-close-line mobile-menu__close-icon"></i>
+          </button>
+        </div>
+        <nav class="mobile-menu__navigation">
+          <ul class="mobile-menu__list">
+            <li class="mobile-menu__item mobile-menu__item--selected"><a href="#" class="mobile-menu__link">Home</a></li>
+            <li class="mobile-menu__item"><a href="#" class="mobile-menu__link">Pricing</a></li>
+            <li class="mobile-menu__item"><a href="#" class="mobile-menu__link">About</a></li>
+            <li class="mobile-menu__item"><a href="#" class="mobile-menu__link">Community</a></li>
+          </ul>
+        </nav>
+        <div class="mobile-menu__footer">
+          <button class="button button--secondary mobile-menu__button">Login</button>
+          <button class="button button--primary mobile-menu__button">Get Started</button>
+        </div>
+      </div>
+    </div>
   `);
 
-	$("body").append(mobileMenu);
-	$("body").css("overflow", "hidden");
-
-	mobileMenu[0].offsetHeight;
-
-	mobileMenu.attr("aria-hidden", "false");
-
-	mobileMenu.css({ visibility: "visible", opacity: 1 });
-	mobileMenu.find(".mobile-menu__overlay").css({ opacity: 1 });
-	mobileMenu
-		.find(".mobile-menu__content")
-		.css({ opacity: 1, transform: "scale(1)" });
-
+	showElement(mobileMenu);
 	return mobileMenu;
 }
 
 export function closeMobileMenu(mobileMenu) {
-	mobileMenu.css({ opacity: 0 });
-	$("body").css("overflow", "");
-	setTimeout(() => {
-		mobileMenu.css({ visibility: "hidden" }).remove();
-	}, 300);
+	closeElement(mobileMenu);
 }
 
 // ============================
