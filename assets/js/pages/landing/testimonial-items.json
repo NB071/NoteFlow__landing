@@ -1,0 +1,87 @@
+{
+	"Testimonials": [
+		{
+			"author": {
+				"name": "Emily Thompson",
+				"role": "Productivity Enthusiast",
+				"avatar": "assets/images/avatars/testimonial-avatars/1.jpg"
+			},
+			"rating": 5,
+			"content": "NoteFlow has completely transformed the way I manage my work notes. The AI-powered organization feature makes it so easy to find what I need, even weeks after the fact."
+		},
+		{
+			"author": {
+				"name": "Jonathan Moore",
+				"role": "Software Engineer",
+				"avatar": "assets/images/avatars/testimonial-avatars/2.jpg"
+			},
+			"rating": 4,
+			"content": "The smart organization of my notes is impressive. I used to waste time searching for information, but now NoteFlow does the heavy lifting."
+		},
+		{
+			"author": {
+				"name": "Michael Carter",
+				"role": "Product Designer",
+				"avatar": "assets/images/avatars/testimonial-avatars/3.jpg"
+			},
+			"rating": 4,
+			"content": "As a designer, I need a tool that helps me keep track of brainstorming sessions and project notes. NoteFlow’s voice-to-text transcription is a game-changer, allowing me to capture ideas while on the go. It has boosted my productivity tenfold!"
+		},
+		{
+			"author": {
+				"name": "Rachel Foster",
+				"role": "Project Manager",
+				"avatar": "assets/images/avatars/testimonial-avatars/4.jpg"
+			},
+			"rating": 5,
+			"content": "NoteFlow has made managing multiple projects so much easier. I can quickly access and organize my notes, and the contextual reminders keep me on track. It's the best tool I've found for staying organized."
+		},
+		{
+			"author": {
+				"name": "Sarah Lee",
+				"role": "Business Analyst",
+				"avatar": "assets/images/avatars/testimonial-avatars/5.jpg"
+			},
+			"rating": 5,
+			"content": "I love how NoteFlow integrates with tools like Google Drive and Slack. It makes collaboration with my team so much smoother. The contextual reminders have helped me stay on top of critical deadlines."
+		},
+		{
+			"author": {
+				"name": "Olivia Bennett",
+				"role": "Entrepreneur",
+				"avatar": "assets/images/avatars/testimonial-avatars/6.jpg"
+			},
+			"rating": 4,
+			"content": "As a startup founder, my days are packed with meetings and ideas. NoteFlow's voice-to-text feature lets me capture thoughts while I'm on the move."
+		}
+	],
+	"MoreTestimonials": [
+		{
+			"author": {
+				"name": "Daniel Rivera",
+				"role": "Marketing Specialist",
+				"avatar": "assets/images/avatars/testimonial-avatars/7.jpg"
+			},
+			"rating": 5,
+			"content": "NoteFlow has become my go-to tool for campaign planning. I can quickly jot down ideas, categorize them, and retrieve them later without digging through endless documents."
+		},
+		{
+			"author": {
+				"name": "Sophia Patel",
+				"role": "Content Creator",
+				"avatar": "assets/images/avatars/testimonial-avatars/8.jpg"
+			},
+			"rating": 4,
+			"content": "Creating content requires constant brainstorming. NoteFlow keeps my scattered ideas organized and accessible, helping me focus on what really matters—creating!"
+		},
+		{
+			"author": {
+				"name": "James Wilson",
+				"role": "UX Researcher",
+				"avatar": "assets/images/avatars/testimonial-avatars/9.jpg"
+			},
+			"rating": 5,
+			"content": "During user interviews, I rely on NoteFlow to capture notes and insights in real time. Its organization and search features save me hours of post-session sorting."
+		}
+	]
+}

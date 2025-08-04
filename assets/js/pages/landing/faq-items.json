@@ -1,0 +1,112 @@
+{
+	"FAQ": {
+		"general": [
+			{
+				"title": "What is NoteFlow?",
+				"content": "NoteFlow uses AI to automatically organize, summarize, and recommend related notes based on your activities.",
+				"icon": "ri-lightbulb-line"
+			},
+			{
+				"title": "How does NoteFlow use AI to enhance note-taking?",
+				"content": "NoteFlow uses AI to analyze your notes, identify key topics, and suggest relevant content. It can also summarize lengthy notes and provide contextual reminders based on your content.",
+				"icon": "ri-brain-line"
+			},
+			{
+				"title": "Can NoteFlow be used for team collaboration?",
+				"content": "Yes, NoteFlow supports team collaboration by allowing users to share notes, comment on them, and work together in real-time. It also provides features for managing permissions and tracking changes.",
+				"icon": "ri-team-line"
+			},
+			{
+				"title": "Can I access NoteFlow on multiple devices?",
+				"content": "Yes, NoteFlow is designed to be accessible across multiple devices. You can access your notes from any device with an internet connection, ensuring you can work seamlessly whether you're on a computer, tablet, or smartphone.",
+				"icon": "ri-device-line"
+			},
+			{
+				"title": "Is my data secure with NoteFlow?",
+				"content": "Yes, NoteFlow takes data security seriously. We implement industry-standard encryption protocols to protect your data both in transit and at rest. Additionally, we regularly audit our security practices to ensure your information remains safe.",
+				"icon": "ri-shield-check-line"
+			}
+		],
+		"pricing": [
+			{
+				"title": "What are the pricing plans for NoteFlow?",
+				"content": "NoteFlow offers various pricing plans to suit different needs, including a free tier with basic features and premium plans that unlock advanced functionalities. You can find detailed pricing information on our website.",
+				"icon": "ri-price-tag-3-line"
+			},
+			{
+				"title": "Is there a free trial available?",
+				"content": "Yes, NoteFlow offers a free trial period for new users to explore all premium features before committing to a paid plan.",
+				"icon": "ri-gift-line"
+			},
+			{
+				"title": "Can I cancel my subscription at any time?",
+				"content": "Yes, you can cancel your NoteFlow subscription at any time. If you cancel before the end of your billing cycle, you will not be charged for the next period.",
+				"icon": "ri-close-circle-line"
+			},
+			{
+				"title": "Are there discounts for annual subscriptions?",
+				"content": "Yes, NoteFlow offers discounts for users who choose to pay annually instead of monthly. This can provide significant savings over time.",
+				"icon": "ri-discount-percent-line"
+			},
+			{
+				"title": "What payment methods are accepted?",
+				"content": "NoteFlow accepts various payment methods, including credit cards, PayPal, and other online payment systems. You can choose your preferred method during the checkout process.",
+				"icon": "ri-bank-card-line"
+			}
+		],
+		"features": [
+			{
+				"title": "What are the key features of NoteFlow?",
+				"content": "NoteFlow offers a range of features designed to enhance your note-taking experience, including AI-powered organization, real-time collaboration, and advanced search capabilities.",
+				"icon": "ri-function-line"
+			},
+			{
+				"title": "Does NoteFlow support multimedia notes?",
+				"content": "Yes, NoteFlow allows users to create multimedia notes that include text, images, audio, and video content, making it easy to capture and organize information in various formats.",
+				"icon": "ri-file-music-line"
+			},
+			{
+				"title": "Can I customize the appearance of my notes?",
+				"content": "Yes, NoteFlow provides various customization options, allowing users to change the layout, colors, and fonts of their notes to suit their preferences.",
+				"icon": "ri-palette-line"
+			},
+			{
+				"title": "Does NoteFlow have a mobile app?",
+				"content": "Yes, NoteFlow has a mobile app available for both iOS and Android devices, enabling users to access and manage their notes on the go.",
+				"icon": "ri-smartphone-line"
+			},
+			{
+				"title": "Can I integrate NoteFlow with other tools?",
+				"content": "Yes, NoteFlow supports integration with various productivity tools and services, allowing users to streamline their workflows and enhance their note-taking experience.",
+				"icon": "ri-links-line"
+			}
+		],
+		"integrations": [
+			{
+				"title": "What integrations does NoteFlow support?",
+				"content": "NoteFlow supports integrations with various third-party applications and services, including Google Drive, Dropbox, and Slack, allowing users to connect their favorite tools and streamline their workflows.",
+				"icon": "ri-puzzle-line"
+			},
+			{
+				"title": "Can I use NoteFlow with my existing tools?",
+				"content": "Yes, NoteFlow is designed to work seamlessly with your existing tools and applications. You can easily integrate NoteFlow into your current workflow without any disruptions.",
+				"icon": "ri-tools-line"
+			},
+			{
+				"title": "Are there any setup requirements for integrations?",
+				"content": "NoteFlow integrations are designed to be user-friendly, with minimal setup required. Most integrations can be configured within a few clicks, and detailed instructions are provided for each supported tool.",
+				"icon": "ri-settings-4-line"
+			},
+			{
+				"title": "Can I suggest new integrations for NoteFlow?",
+				"content": "Absolutely! We welcome user feedback and suggestions for new integrations. You can submit your ideas through our support channels, and we will consider them for future updates.",
+				"icon": "ri-feedback-line"
+			},
+			{
+				"title": "Is there a limit to the number of integrations I can use?",
+				"content": "There is no limit to the number of integrations you can use with NoteFlow. You can connect as many tools as you need to enhance your productivity and streamline your note-taking process.",
+				"icon": "ri-infinity-line"
+			}
+		]
+	}
+}

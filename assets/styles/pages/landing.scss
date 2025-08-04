@@ -419,15 +419,17 @@
 	}
 
 	&__summary-icon-wrapper {
-		padding: 0.75rem;
+		width: 3rem;
+		height: 3rem;
+		padding: 0.5rem;
 		border-radius: 0.75rem;
 		border: 2px solid $primary-50;
 		@include flex(row, center, center);
 	}
 
 	&__summary-icon {
-		width: 1.5rem;
-		aspect-ratio: 1 / 1;
+		color: $primary-50;
+		font-size: 1.5rem;
 	}
 
 	&__summary-title {
@@ -437,8 +439,7 @@
 
 	&__summary-arrow {
 		margin-left: auto;
-		width: 3rem;
-		aspect-ratio: 1 / 1;
+		font-size: 1.5rem;
 	}
 
 	&__text {
