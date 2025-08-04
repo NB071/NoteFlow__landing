@@ -528,8 +528,7 @@
 	}
 
 	&__rating-icon {
-		width: 1.5rem;
-		height: 1.5rem;
+		font-size: 1.5rem;
 
 		// States
 		@include hover-effect(

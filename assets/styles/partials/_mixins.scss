@@ -17,7 +17,7 @@
 	$transition: if(
 		map.has-key($options, transition),
 		map.get($options, transition),
-		0.3s
+		0.5s
 	);
 
 	&:hover {
@@ -42,7 +42,7 @@
 	}
 
 	& {
-		transition: all $transition ease-in-out;
+		transition: all $transition ease-in-out !important;
 	}
 }
 
