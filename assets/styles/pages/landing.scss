@@ -446,6 +446,7 @@
 		margin: 0rem 0.25rem 0rem auto;
 		font-size: 1.5rem;
 
+		// breakpoints
 		@include tablet {
 			margin-right: 0rem;
 		}
