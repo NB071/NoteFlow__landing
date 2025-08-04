@@ -43,10 +43,6 @@ function closeElement(element) {
 // Modal Functionalities
 // =============================
 
-// =============================
-// Modal Functionalities
-// =============================
-
 /**
  * Creates a modal with the given ID and HTML content.
  * @param {string} id - The modal ID.
@@ -82,11 +78,23 @@ function createModal(id, title, description, formContent) {
 	return modal;
 }
 
+/**
+ * Closes the specified modal element.
+ *
+ * @param {HTMLElement} modal - The modal element to be closed.
+ */
 export function closeModal(modal) {
 	closeElement(modal);
 }
 
-// Specific modal creators use the generic `createModal`
+/**
+ * Creates and returns a "Get Started" modal for user sign-up.
+ *
+ * The modal includes a form with fields for email, password, and a terms agreement checkbox.
+ * It displays a title, description, and a submit button.
+ *
+ * @returns {HTMLElement} The constructed modal element for the "Get Started" sign-up process.
+ */
 export function createGetStartedModal() {
 	return createModal(
 		"get-started-modal",
@@ -117,6 +125,14 @@ export function createGetStartedModal() {
 	);
 }
 
+/**
+ * Creates and returns a login modal element.
+ *
+ * The modal includes a form for user authentication with fields for email and password,
+ * as well as buttons for submitting the login form or switching to account creation.
+ *
+ * @returns {HTMLElement} The constructed login modal element.
+ */
 export function createLoginModal() {
 	return createModal(
 		"login-modal",
@@ -148,6 +164,15 @@ export function createLoginModal() {
 // Mobile Menu Functionalities
 // ============================
 
+/**
+ * Creates and returns a mobile menu element for the landing page.
+ *
+ * The menu includes navigation links (Home, Pricing, About, Community),
+ * close button, and footer actions (Login, Get Started).
+ * The menu is initially shown using the `showElement` utility.
+ *
+ * @returns {jQuery} The jQuery object representing the mobile menu element.
+ */
 export function createMobileMenu() {
 	const mobileMenu = $(`
     <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
@@ -178,6 +203,11 @@ export function createMobileMenu() {
 	return mobileMenu;
 }
 
+/**
+ * Closes the specified mobile menu element.
+ *
+ * @param {HTMLElement} mobileMenu - The mobile menu element to be closed.
+ */
 export function closeMobileMenu(mobileMenu) {
 	closeElement(mobileMenu);
 }
