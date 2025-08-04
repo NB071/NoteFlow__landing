@@ -45,7 +45,7 @@ export function createGetStartedModal() {
           <div class="modal__form-wrapper">
             <div class="modal__close-wrapper">
               <button class="modal__close-button" aria-label="Close modal">
-                ✕
+                <i class="ri-close-line modal__close-icon"></i>
               </button>
             </div>
             <form action="#" method="POST">
